@@ -1,6 +1,6 @@
-# plex-meta.manger
+# Plex-Meta-Manger
 
-My personal Plex setup
+# My personal Plex setup
 
 TV Shows
 
