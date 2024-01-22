@@ -1,0 +1,142 @@
+######################################################
+#                Chart Collections                   #
+######################################################
+templates:
+  Chart Alpha:
+    sort_title: +1_<<num>><<collection_name>>
+    sync_mode: sync
+    smart_label: random
+    collection_order: alpha
+    collection_minimum: 1
+    delete_below_minimum: true
+
+
+collections:
+
+   #
+   # Append a label to all returning shows
+   #
+   "Status OnAir LABEL":
+     item_label: OnAir-Show
+     build_collection: false
+     builder_level: show
+     sync_mode: append #sync
+     plex_all: true
+     filters:
+       tmdb_status:
+         - returning
+         - planned
+         - production
+
+   #
+   # Make a smart collection of all shows with label returning
+   #
+   "Status: Airing":
+     name_mapping: "Status Airing"
+     sort_title: "!045 Airing"
+     summary: 'Shows that have the current status of "Returning" or "In Production" on TheMovieDB.org'
+#     file_poster: 'config\overlays\Shows_Returning.png'
+     collection_mode: hide
+     builder_level: show
+     sync_mode: sync
+     smart_filter:
+       sort_by: title.asc
+       all:
+         label: OnAir-Show
+#         label.not: Mini-Series
+        
+
+   #
+   # Append a label to all returning shows with first episode aired in last 90 days
+   #
+   "Status New LABEL":
+     item_label: New-Show
+     build_collection: false
+     builder_level: show
+     sync_mode: append #sync
+     plex_all: true
+     filters:
+       tmdb_status:
+         - returning
+         - planned
+         - production
+       first_episode_aired: 90
+
+   #
+   # Make a smart collection of all shows with label new
+   #
+   "Status: New":
+     name_mapping: "Status New"
+     sort_title: "!042 New"
+     summary: 'Shows that have the current status of "Returning" or "In Production" on TheMovieDB.org with first episode aired within the last 90 days.'
+#     file_poster: 'config\overlays\Shows_Returning.png'
+     collection_mode: hide
+     builder_level: show
+     sync_mode: sync
+     smart_filter:
+       sort_by: title.asc
+       all:
+         label: New-Show
+
+   #
+   # Append a label to all ended shows
+   #
+   "Status Ended LABEL":
+     item_label: Ended-Show
+     build_collection: false
+     builder_level: show
+     sync_mode: append #sync
+     plex_all: true
+     filters:
+       tmdb_status:
+         - ended
+
+   #
+   # Make a smart collection of all shows with label ended
+   #
+   "Status: Ended":
+     name_mapping: "Status Ended"
+     sort_title: "!046 Ended"
+     summary: 'Shows that have the current status of "Ended" or "Canceled" on TheMovieDB.org'
+     #file_poster: 'config\overlays\Shows_Ended.png'
+     collection_mode: hide
+     builder_level: show
+     sync_mode: sync
+     smart_filter:
+       sort_by: title.asc
+       all:
+         label: Ended-Show
+#         label.not: Mini-Series
+
+   #
+   # Append a label to all Canceled shows
+   #
+   "Status Canceled LABEL":
+     item_label: Canceled-Show
+     build_collection: false
+     builder_level: show
+     sync_mode: append #sync
+     plex_all: true
+     filters:
+       tmdb_status:
+         - canceled
+
+   #
+   # Make a smart collection of all shows with label Canceled
+   #
+   "Status: Canceled":
+     name_mapping: "Status Canceled"
+     sort_title: "!046 Canceled"
+     summary: 'Shows that have the current status of "Canceled" on TheMovieDB.org'
+#     file_poster: 'config\overlays\Shows_Ended.png'
+     collection_mode: hide
+     builder_level: show
+     sync_mode: sync
+     smart_filter:
+       sort_by: title.asc
+       all:
+         label: Canceled-Show
+
+######################################################
+#                       END                          #
+######################################################

@@ -1,0 +1,382 @@
+####################################################################################
+##                               config.yml                                       ##
+####################################################################################
+
+####################################################################################
+libraries:          # Library mappings must have a colon (:) placed after them    ##
+####################################################################################
+
+####################################################################################
+##                                 TV Shows                                       ##
+####################################################################################
+
+  TV Shows:
+    run_order:
+    - collections
+    - metadata
+    - operations
+    - overlays
+
+    schedule_overlays:  hourly(02-20)
+
+    remove_overlays: false                                      #reset overlays to plex or tmdb
+    reapply_overlays: false                                     # Set this to true to remove all overlays
+#    reset_overlays: tmdb    
+
+    report_path: config/reports/TV_Shows_report.yml
+
+#    metadata_files:
+#     - file: config/metadata.yml
+
+    collection_files:
+
+    - file: config/TV_Shows.yml
+
+    overlay_files:
+
+    - file: config/TV_Shows_Overlays.yml
+
+    - pmm: streaming
+#      schedule: non_existing
+      template_variables:
+        vertical_offset: 15
+
+    - pmm: commonsense                                          #content_rating_us_show
+#      schedule: non_existing
+      template_variables:
+        vertical_offset: 136
+
+    - pmm: commonsense                                          #content_rating_us_show
+#      schedule: non_existing
+      template_variables:
+        overlay_level: season
+        vertical_offset: 136
+
+    - pmm: commonsense                                          #content_rating_us_show
+#      schedule: non_existing
+      template_variables:
+        overlay_level: episode
+        vertical_offset: 136
+
+    - pmm: ratings
+#      schedule: non_existing
+      template_variables:
+
+#        rating1: user
+#        rating1_image: rt_popcorn
+
+        rating2: critic
+        rating2_image: imdb
+
+        rating3: audience
+        rating3_image: tmdb
+        horizontal_position: right
+        vertical_position: bottom
+
+    - pmm: resolution
+#      schedule: non_existing
+      template_variables:
+        overlay_level: episode
+
+    - pmm: episode_info
+#      schedule: non_existing
+      template_variables:
+        overlay_level: episode
+
+    - pmm: runtimes
+#      schedule: non_existing
+      template_variables:
+        overlay_level: episode
+
+####################################################################################
+##                        TV Show  Settings                                       ##
+####################################################################################
+
+    operations:
+      split_duplicates: false
+      assets_for_all: false
+
+      delete_unmanaged_collections: false                       # Any manually added collection outside of PMM will be deleted
+
+      delete_collections:                                       # Deletes collections based on conditions below
+        configured: false                                       #False/True Removes all Managed Collections (Collections with the PMM Label) that are not configured in the Current Run.
+        managed: true
+        less: 1                                                 # Collections with less than 1 movie/show in it will be deleted
+
+#       managed: true                                           # (Deletes PMM label Collections)
+#       managed: false                                          # (Deletes no PMM label collections)
+#       configured: true                                        # (Deletes collections in the config file)
+#       configured: false                                       # (Deletes collections not in the config file)
+
+      mass_critic_rating_update: imdb                           # Rating 2
+      mass_audience_rating_update: tmdb                         # mdb_tomoatoesaudience #mdb_metacritic # Rating 3
+      mass_user_rating_update: mdb_tomatoes                     # tmdb #Rating 1
+
+#      mass_poster_update:                                      #resets posters to tmdb or plex
+#        source: plex
+#        seasons: true
+#        episodes: true
+
+      mass_episode_critic_rating_update: imdb
+      mass_episode_audience_rating_update: tmdb
+      mass_genre_update: tmdb
+      mass_content_rating_update: mdb_commonsense               # Changes Content Rating to "1", "2" etc. to specify appropriate age
+      mass_originally_available_update: tmdb                    # Update all original available date from tmdb (episode air date example)
+      mass_imdb_parental_labels: none #without_none             # Updates all parental labels - Violence, Mild Nudity, Smoking, Foul Language, etc.
+
+####################################################################################
+##                                 Movies                                         ##
+####################################################################################
+
+  Movies:
+    run_order: 
+    - collections
+    - metadata
+    - operations
+    - overlays
+
+#    schedule: hourly # (3) hour of day
+    schedule_overlays: hourly(02-20)
+
+    remove_overlays: false                                      # Set this to true to remove all overlays
+    reapply_overlays: false 
+#    reset_overlays: tmdb                                       # reset overlays to plex or tmdb  
+
+    report_path: config/reports/Movies_report.yml
+
+#    metadata_files:
+#     - file: config/metadata.yml
+
+    collection_files:
+    - file: config/Movies.yml
+
+    overlay_files:
+    - file: config/Movies_Overlays.yml
+
+#    - pmm: seasonal
+#      schedule: non_existing
+
+    - pmm: mediastinger
+#      schedule: non_existing
+
+#    - pmm: runtimes
+#      schedule: non_existing
+
+#    - pmm: resolution
+#      schedule: non_existing
+
+#    - pmm: streaming
+#      schedule: non_existing
+
+    - pmm: commonsense                                          #content_rating_us_movie
+#      schedule: non_existing
+      template_variables:
+        vertical_offset: 136
+
+    - pmm: ratings
+#      schedule: non_existing
+      template_variables:
+
+        rating1: user
+        rating1_image: rt_popcorn
+
+        rating2: critic
+        rating2_image: imdb
+
+        rating3: audience
+        rating3_image: tmdb
+
+        horizontal_position: right
+        vertical_position: bottom
+
+#playlist_files:
+#  - file: config/playlists.yml
+#  - pmm: playlist
+
+####################################################################################
+##                         Movie   Settings                                       ##
+####################################################################################  
+
+    operations:
+      split_duplicates: false
+      assets_for_all: false
+
+      delete_unmanaged_collections: false                       # Any manually added collection outside of PMM will be deleted
+
+      delete_collections:                                       # Deletes collections based on conditions below
+        configured: false                                       #False/True Removes all Managed Collections (Collections with the PMM Label) that are not configured in the Current Run.
+        managed: true
+        less: 1                                                 # Collections with less than 1 movie/show in it will be deleted
+
+#       managed: true                                           # (Deletes PMM label Collections)
+#       managed: false                                          # (Deletes no PMM label collections)
+#       configured: true                                        # (Deletes collections in the config file)
+#       configured: false                                       # (Deletes collections not in the config file)
+
+#     mass_poster_update: plex                                  #  Resets posters to tmdb or plex
+      mass_critic_rating_update: imdb                           # Rating 2
+      mass_audience_rating_update: tmdb                         # mdb_tomoatoesaudience #mdb_metacritic # Rating 3
+      mass_user_rating_update: mdb_tomatoes                     # tmdb #Rating 1   
+      mass_genre_update: tmdb
+      mass_content_rating_update: mdb_commonsense               # Changes Content Rating to "1", "2" etc. to specify appropriate age
+      mass_originally_available_update: tmdb
+      mass_imdb_parental_labels: none                           # without_none
+
+####################################################################################
+##                             PMM   Settings                                     ##
+####################################################################################
+
+settings:
+
+  assets_for_all: false
+  asset_depth: 1
+  asset_directory: config/assets
+  asset_folders: true
+  cache: true
+  cache_expiration: 60
+  check_nightly: true
+  create_asset_folders: true
+  custom_repo:
+  default_collection_order:
+  delete_below_minimum: true
+  delete_not_scheduled: false
+  dimensional_asset_rename: false
+  download_url_assets: true
+  ignore_ids:
+  ignore_imdb_ids:
+  item_refresh_delay: 0
+  minimum_items: 1
+  missing_only_released: false
+  only_filter_missing: false
+  playlist_exclude_users:
+  playlist_report: false
+  playlist_sync_to_user: all
+  prioritize_assets: true
+  released_missing_only: false
+  run_again_delay: 5
+  run_order:
+  - operations
+  - metadata
+  - collections
+  - overlays
+  save_missing: false
+  save_report: true
+  show_asset_not_needed: true
+  show_filtered: false
+  show_missing: true
+  show_missing_assets: false
+  show_missing_episode_assets: false
+  show_missing_season_assets: false
+  show_options: false
+  show_unmanaged: true
+  show_unconfigured: true
+  sync_mode: sync #append                                       # append/sync - append doesn't remove items from a collection - sync does
+  tvdb_language: eng
+  verify_ssl: true
+
+####################################################################################
+##                         Connection Settings                                    ##
+####################################################################################
+
+webhooks:                        # Can be individually specified per library as well
+
+  version: https://discord.com/api/webhooks/1062125384147161129/p6_JiBn-Lc3oUEXRKAs02TXpXYoLVSZGSztgUcG7UcPL11FHRbjOJ4NtL6c-BMfaw3uV
+  run_start: https://discord.com/api/webhooks/1062125384147161129/p6_JiBn-Lc3oUEXRKAs02TXpXYoLVSZGSztgUcG7UcPL11FHRbjOJ4NtL6c-BMfaw3uV
+  run_end: https://discord.com/api/webhooks/1062125384147161129/p6_JiBn-Lc3oUEXRKAs02TXpXYoLVSZGSztgUcG7UcPL11FHRbjOJ4NtL6c-BMfaw3uV
+  changes: https://discord.com/api/webhooks/1062125384147161129/p6_JiBn-Lc3oUEXRKAs02TXpXYoLVSZGSztgUcG7UcPL11FHRbjOJ4NtL6c-BMfaw3uV
+  delete: https://discord.com/api/webhooks/1062125384147161129/p6_JiBn-Lc3oUEXRKAs02TXpXYoLVSZGSztgUcG7UcPL11FHRbjOJ4NtL6c-BMfaw3uV
+  error: https://discord.com/api/webhooks/1062125384147161129/p6_JiBn-Lc3oUEXRKAs02TXpXYoLVSZGSztgUcG7UcPL11FHRbjOJ4NtL6c-BMfaw3uV
+
+plex:                            # Can be individually specified per library as well; REQUIRED for the script to run
+  url: http://192.168.2.30:32400
+  token: LVygdAvi9z9RsycnZFRV
+  timeout: 60
+  clean_bundles: true
+  empty_trash: false
+  optimize: false
+  db_cache:
+
+tmdb:                            # REQUIRED for the script to run
+  apikey: 3e2ef663338c34f9f95165598e61a8a6
+  language: en
+  cache_expiration: 60
+  region:
+
+tautulli:                        # Can be individually specified per library as well
+  url: http://192.168.2.20:8181
+  apikey: ea4029e4665444879a14ceff95c50b4e
+
+omdb:
+  apikey: 1a92e30e
+  cache_expiration: 60
+
+mdblist:
+  apikey: 6aijl4cnpbgfztak2hhnwee0p
+  cache_expiration: 60
+
+#notifiarr:
+  #apikey: 78847f76-8758-4dc9-a00c-f53c3c50ce33
+
+radarr:                          # Can be individually specified per library as well
+  url: http://192.168.2.20:7878
+  token: 031061a5b322404f9f6eecef73983a2f
+  add_missing: false
+  add_existing: false
+  root_folder_path: /movies
+  monitor: true
+  availability: announced
+  quality_profile: Default HD-720/1080p
+  tag:
+  search: false
+  radarr_path:
+  plex_path:
+  ignore_cache: false
+  upgrade_existing: false
+
+sonarr:                          # Can be individually specified per library as well
+  url: http://192.168.2.20:8989
+  token: 63ad38a827fc446d8abb2cf1e5e751b3
+  add_missing: false
+  add_existing: false
+  root_folder_path: /TV
+  monitor: all
+  quality_profile: TV Default
+  language_profile: English
+  series_type: standard
+  season_folder: true
+  tag:
+  search: false
+  cutoff_search: false
+  sonarr_path:
+  plex_path:
+  ignore_cache: false
+  upgrade_existing: false
+
+trakt:
+  client_id: 91e3834a108aa3523a9ef632246a6b4a4a80c90982c159988089457580f4b7c4
+  client_secret: 9cc554afc61c11bdbfaa0e3dccd1176e600069832d3666c6e5dd85a75ddd56e1
+  pin:
+  authorization:
+#   everything below is autofilled by the script
+    access_token: 1dfdb5e32be1cc0d2c8ff4efada12b59cd2253c5d6ec78783ec0ce00e26ae85c
+    token_type: Bearer
+    expires_in: 7889237
+    refresh_token: 26119e590714ce40c2e886f419cc500ce8648c6674e60c55c6229e75c39f10e5
+    scope: public
+    created_at: 1703602812
+  upgrade_existing: false
+
+#mal:         # My Anime List
+#  client_id: ####################
+#  client_secret: ####################
+#  authorization:
+#    # everything below is autofilled by the script
+#    access_token:
+#    token_type:
+#    expires_in:
+#    refresh_token:
+
+
+####################################################################################
+##                                    END                                         ##
+####################################################################################
