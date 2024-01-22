@@ -1,8 +1,8 @@
-# Plex-Meta-Manger
+# Riptide9's Plex-Meta-Manger Config
 
 # My personal Plex setup
 
-TV Shows
+TV Show Overlays
 
 <img width="678" alt="SNAG-0217" src="https://github.com/jwishon/plex-meta.manger/assets/26937337/d40433e3-cfd7-4d45-b947-f967dec3da70">
 
