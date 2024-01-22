@@ -280,16 +280,16 @@ settings:
 
 webhooks:                        # Can be individually specified per library as well
 
-  version: https://discord.com/api/webhooks/1062125384147161129/p6_JiBn-Lc3oUEXRKAs02TXpXYoLVSZGSztgUcG7UcPL11FHRbjOJ4NtL6c-BMfaw3uV
-  run_start: https://discord.com/api/webhooks/1062125384147161129/p6_JiBn-Lc3oUEXRKAs02TXpXYoLVSZGSztgUcG7UcPL11FHRbjOJ4NtL6c-BMfaw3uV
-  run_end: https://discord.com/api/webhooks/1062125384147161129/p6_JiBn-Lc3oUEXRKAs02TXpXYoLVSZGSztgUcG7UcPL11FHRbjOJ4NtL6c-BMfaw3uV
-  changes: https://discord.com/api/webhooks/1062125384147161129/p6_JiBn-Lc3oUEXRKAs02TXpXYoLVSZGSztgUcG7UcPL11FHRbjOJ4NtL6c-BMfaw3uV
-  delete: https://discord.com/api/webhooks/1062125384147161129/p6_JiBn-Lc3oUEXRKAs02TXpXYoLVSZGSztgUcG7UcPL11FHRbjOJ4NtL6c-BMfaw3uV
-  error: https://discord.com/api/webhooks/1062125384147161129/p6_JiBn-Lc3oUEXRKAs02TXpXYoLVSZGSztgUcG7UcPL11FHRbjOJ4NtL6c-BMfaw3uV
+  version: https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  run_start: https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  run_end: https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  changes: https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  delete: https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  error: https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 plex:                            # Can be individually specified per library as well; REQUIRED for the script to run
   url: http://192.168.2.30:32400
-  token: LVygdAvi9z9RsycnZFRV
+  token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   timeout: 60
   clean_bundles: true
   empty_trash: false
@@ -297,21 +297,21 @@ plex:                            # Can be individually specified per library as 
   db_cache:
 
 tmdb:                            # REQUIRED for the script to run
-  apikey: 3e2ef663338c34f9f95165598e61a8a6
+  apikey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   language: en
   cache_expiration: 60
   region:
 
 tautulli:                        # Can be individually specified per library as well
   url: http://192.168.2.20:8181
-  apikey: ea4029e4665444879a14ceff95c50b4e
+  apikey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 omdb:
   apikey: 1a92e30e
   cache_expiration: 60
 
 mdblist:
-  apikey: 6aijl4cnpbgfztak2hhnwee0p
+  apikey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   cache_expiration: 60
 
 #notifiarr:
@@ -319,7 +319,7 @@ mdblist:
 
 radarr:                          # Can be individually specified per library as well
   url: http://192.168.2.20:7878
-  token: 031061a5b322404f9f6eecef73983a2f
+  token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   add_missing: false
   add_existing: false
   root_folder_path: /movies
@@ -335,7 +335,7 @@ radarr:                          # Can be individually specified per library as 
 
 sonarr:                          # Can be individually specified per library as well
   url: http://192.168.2.20:8989
-  token: 63ad38a827fc446d8abb2cf1e5e751b3
+  token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   add_missing: false
   add_existing: false
   root_folder_path: /TV
@@ -353,15 +353,15 @@ sonarr:                          # Can be individually specified per library as 
   upgrade_existing: false
 
 trakt:
-  client_id: 91e3834a108aa3523a9ef632246a6b4a4a80c90982c159988089457580f4b7c4
-  client_secret: 9cc554afc61c11bdbfaa0e3dccd1176e600069832d3666c6e5dd85a75ddd56e1
+  client_id: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  client_secret: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   pin:
   authorization:
 #   everything below is autofilled by the script
-    access_token: 1dfdb5e32be1cc0d2c8ff4efada12b59cd2253c5d6ec78783ec0ce00e26ae85c
+    access_token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     token_type: Bearer
     expires_in: 7889237
-    refresh_token: 26119e590714ce40c2e886f419cc500ce8648c6674e60c55c6229e75c39f10e5
+    refresh_token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     scope: public
     created_at: 1703602812
   upgrade_existing: false
