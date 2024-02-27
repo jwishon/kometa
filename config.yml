@@ -19,59 +19,69 @@ libraries:          # Library mappings must have a colon (:) placed after them  
 
     schedule_overlays:  hourly(02-20)
 
-    remove_overlays: false                                      #reset overlays to plex or tmdb
-    reapply_overlays: false                                     # Set this to true to remove all overlays
-#    reset_overlays: tmdb    
+    remove_overlays: false                                     # This will remove all overlays from your library every run, but will not delete the overlaid images from your system, resulting in image bloat.
+    reapply_overlays: true                                     # This will reapply all overlays on each run, which will result in image bloat.
+#    reset_overlays: plex                                      # This will reset overlays to plex or tmdb Utill set to false or removed this will reset all posters to the desired source on each run and will reapply all overlays on each run, which will result in image bloat.
 
-    report_path: config/reports/TV_Shows_report.yml
+    report_path: config/reports/TV_Report.yml
 
 #    metadata_files:
-#     - file: config/metadata.yml
+#     - file: config/assistant/TV-Shows-returning-soon-metadata.yml
 
     collection_files:
 
-    - file: config/TV_Shows.yml
+    - file: config/TV_Collections.yml
 
     overlay_files:
 
-    - file: config/TV_Shows_Overlays.yml
+    - file: config/TV_Overlays.yml
+    - file: config/TV_Ratings_Overlays.yml
 
-    - pmm: streaming
+#    - pmm: streaming
 #      schedule: non_existing
-      template_variables:
-        vertical_offset: 15
+#      template_variables:
+#        vertical_offset: 15
 
     - pmm: commonsense                                          #content_rating_us_show
 #      schedule: non_existing
       template_variables:
-        vertical_offset: 136
+        back_color: 00
+        horizontal_align: left
+        vertical_offset: 20
+        vertical_align: bottom
 
     - pmm: commonsense                                          #content_rating_us_show
 #      schedule: non_existing
       template_variables:
         overlay_level: season
-        vertical_offset: 136
+        back_color: 00
+        horizontal_align: left
+        vertical_offset: 20
+        vertical_align: bottom
 
     - pmm: commonsense                                          #content_rating_us_show
 #      schedule: non_existing
       template_variables:
         overlay_level: episode
-        vertical_offset: 136
+        back_color: 00
+        horizontal_align: left
+        vertical_offset: 20
+        vertical_align: bottom
 
-    - pmm: ratings
+#    - pmm: ratings
 #      schedule: non_existing
-      template_variables:
+#      template_variables:
 
-#        rating1: user
-#        rating1_image: rt_popcorn
+##        rating1: user
+##        rating1_image: rt_popcorn
 
-        rating2: critic
-        rating2_image: imdb
+##        rating2: critic
+##        rating2_image: imdb
 
-        rating3: audience
-        rating3_image: tmdb
-        horizontal_position: right
-        vertical_position: bottom
+#        rating3: audience
+#        rating3_image: tmdb
+#        horizontal_align: right
+#        vertical_align: bottom
 
     - pmm: resolution
 #      schedule: non_existing
@@ -112,7 +122,7 @@ libraries:          # Library mappings must have a colon (:) placed after them  
       mass_audience_rating_update: tmdb                         # mdb_tomoatoesaudience #mdb_metacritic # Rating 3
       mass_user_rating_update: mdb_tomatoes                     # tmdb #Rating 1
 
-#      mass_poster_update:                                      #resets posters to tmdb or plex
+#      mass_poster_update:                                      # Updates every item's poster to the chosen sites poster. Will fall back to plex if the given option fails. Assets will be used over anything else.
 #        source: plex
 #        seasons: true
 #        episodes: true
@@ -136,28 +146,33 @@ libraries:          # Library mappings must have a colon (:) placed after them  
     - overlays
 
 #    schedule: hourly # (3) hour of day
-    schedule_overlays: hourly(02-20)
+#    schedule_overlays: hourly(02-20)
 
-    remove_overlays: false                                      # Set this to true to remove all overlays
-    reapply_overlays: false 
-#    reset_overlays: tmdb                                       # reset overlays to plex or tmdb  
+    remove_overlays: false                                     # This will remove all overlays from your library every run, but will not delete the overlaid images from your system, resulting in image bloat.
+    reapply_overlays: true                                     # This will reapply all overlays on each run, which will result in image bloat.
+#    reset_overlays: tmdb                                      # This will reset overlays to plex or tmdb Utill set to false or removed this will reset all posters to the desired source on each run and will reapply all overlays on each run, which will result in image bloat.
 
-    report_path: config/reports/Movies_report.yml
+    report_path: config/reports/Movies_Report.yml
 
 #    metadata_files:
 #     - file: config/metadata.yml
 
     collection_files:
-    - file: config/Movies.yml
+    - file: config/Movies_Collections.yml
 
     overlay_files:
     - file: config/Movies_Overlays.yml
+    - file: config/Movies_Ratings_Overlays.yml
 
 #    - pmm: seasonal
 #      schedule: non_existing
 
     - pmm: mediastinger
 #      schedule: non_existing
+      template_variables:
+        horizontal_align: left
+        vertical_align: top
+        vertical_offset: 280
 
 #    - pmm: runtimes
 #      schedule: non_existing
@@ -171,23 +186,26 @@ libraries:          # Library mappings must have a colon (:) placed after them  
     - pmm: commonsense                                          #content_rating_us_movie
 #      schedule: non_existing
       template_variables:
-        vertical_offset: 136
+#        back_color: 00
+        horizontal_align: left
+        vertical_align: top
+        vertical_offset: 160
 
-    - pmm: ratings
+#    - pmm: ratings
 #      schedule: non_existing
-      template_variables:
+#      template_variables:
 
-        rating1: user
-        rating1_image: rt_popcorn
+#        rating1: user
+#        rating1_image: rt_popcorn
 
-        rating2: critic
-        rating2_image: imdb
+#        rating2: critic
+#        rating2_image: imdb
 
-        rating3: audience
-        rating3_image: tmdb
+#        rating3: audience
+#        rating3_image: tmdb
 
-        horizontal_position: right
-        vertical_position: bottom
+#        horizontal_position: right
+#        vertical_align: bottom
 
 #playlist_files:
 #  - file: config/playlists.yml
@@ -213,7 +231,7 @@ libraries:          # Library mappings must have a colon (:) placed after them  
 #       configured: true                                        # (Deletes collections in the config file)
 #       configured: false                                       # (Deletes collections not in the config file)
 
-#     mass_poster_update: plex                                  #  Resets posters to tmdb or plex
+#      mass_poster_update: plex                                  #  Updates every item's poster to the chosen sites poster. Will fall back to plex if the given option fails. Assets will be used over anything else.
       mass_critic_rating_update: imdb                           # Rating 2
       mass_audience_rating_update: tmdb                         # mdb_tomoatoesaudience #mdb_metacritic # Rating 3
       mass_user_rating_update: mdb_tomatoes                     # tmdb #Rating 1   
@@ -230,12 +248,12 @@ settings:
 
   assets_for_all: false
   asset_depth: 1
-  asset_directory: config/assets
-  asset_folders: true
+  asset_directory: plex/assets
+  asset_folders: false
   cache: true
   cache_expiration: 60
   check_nightly: true
-  create_asset_folders: true
+  create_asset_folders: false
   custom_repo:
   default_collection_order:
   delete_below_minimum: true
@@ -280,16 +298,16 @@ settings:
 
 webhooks:                        # Can be individually specified per library as well
 
-  version: https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  run_start: https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  run_end: https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  changes: https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  delete: https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  error: https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  version: ${DISCORD_WEBHOOK)
+  run_start: ${DISCORD_WEBHOOK)
+  run_end: ${DISCORD_WEBHOOK)
+  changes: ${DISCORD_WEBHOOK)
+  delete: ${DISCORD_WEBHOOK)
+  error: ${DISCORD_WEBHOOK)
 
 plex:                            # Can be individually specified per library as well; REQUIRED for the script to run
-  url: http://192.168.2.30:32400
-  token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  url: ${PLEX_URL}
+  token: ${PLEX_TOKEN}
   timeout: 60
   clean_bundles: true
   empty_trash: false
@@ -297,29 +315,29 @@ plex:                            # Can be individually specified per library as 
   db_cache:
 
 tmdb:                            # REQUIRED for the script to run
-  apikey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  apikey: ${TMDB_API}
   language: en
   cache_expiration: 60
   region:
 
 tautulli:                        # Can be individually specified per library as well
-  url: http://192.168.2.20:8181
-  apikey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  url: ${TAUTULLI_URL}
+  apikey: ${TAUTULLI_API}
 
 omdb:
-  apikey: 1a92e30e
+  apikey: ${OMDB_API}
   cache_expiration: 60
 
 mdblist:
-  apikey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  apikey: ${MDBLIST_API}
   cache_expiration: 60
 
 #notifiarr:
-  #apikey: 78847f76-8758-4dc9-a00c-f53c3c50ce33
+  #apikey: ${NOTIFIER_API}
 
 radarr:                          # Can be individually specified per library as well
-  url: http://192.168.2.20:7878
-  token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  url: ${RADARR_URL}
+  token: ${RADARR_Token}
   add_missing: false
   add_existing: false
   root_folder_path: /movies
@@ -334,8 +352,8 @@ radarr:                          # Can be individually specified per library as 
   upgrade_existing: false
 
 sonarr:                          # Can be individually specified per library as well
-  url: http://192.168.2.20:8989
-  token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  url: ${SONARR_URL}
+  token: ${SONARR_TOKEN}
   add_missing: false
   add_existing: false
   root_folder_path: /TV
@@ -353,17 +371,17 @@ sonarr:                          # Can be individually specified per library as 
   upgrade_existing: false
 
 trakt:
-  client_id: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  client_secret: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  pin:
+  client_id: ${TRAKT_CLIENT_ID}
+  client_secret: ${TRAKT_CLIENT_SECRET}
+  pin: ${TRAKT_PIN}
   authorization:
 #   everything below is autofilled by the script
-    access_token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    token_type: Bearer
-    expires_in: 7889237
-    refresh_token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    scope: public
-    created_at: 1703602812
+    access_token: 
+    token_type: 
+    expires_in: 
+    refresh_token: 
+    scope: 
+    created_at: 
   upgrade_existing: false
 
 #mal:         # My Anime List
