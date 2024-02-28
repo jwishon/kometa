@@ -2,7 +2,7 @@
 
 # My personal Plex Meta Manager config and setup
 
-See examplpe config.yml for examples on how to use.
+See example config.yml for examples on how to use.
 
 TV Show Overlays
 
