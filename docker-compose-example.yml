@@ -1,0 +1,45 @@
+---
+version: "3.8"
+services:
+  kometa:
+    container_name: Kometa
+    image: kometateam/kometa:latest #develop #nightly
+    volumes:
+      - /share/config/kometa/appdata/config:/config:rw
+      - /share/TV:/TV
+      - /share/Movies:/Movies
+      - /share/Multimedia/Plex:/plex
+      - /share/Multimedia/Plex/assets:/plex/assets
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=America/New_York
+      - UMASK=002
+      - KOMETA_CONFIG=/config/config.yml
+      - KOMETA_TIMES=05:15,7:15,9:15,11:15,13:15,15:15,17:15,19:15,21:15 
+      - KOMETA_RUN=false #follow scedule
+      #- KOMETA_RUN=true #run immediately
+      - KOMETA_TEST=False #optional
+      #- KOMETA_NO_MISSING=False #optional
+      - KOMETA_PLEXURL=192.168.1.30:32400
+      - KOMETA_PLEXTOKEN=XXXX
+      - KOMETA_SONARRURL=192.168.1.20:8989
+      - KOMETA_SONARRTOKEN=XXXX
+      - KOMETA_RADARRURL=192.168.1.20:7878
+      - KOMETA_RADARRTOKEN=XXXX
+      - KOMETA_NOTIFIERAPI=XXXX
+      - KOMETA_TMDBAPI=XXXX
+      - KOMETA_TAUTULLIURL=192.168.1.20:8181
+      - KOMETA_TAUTULLIAPI=XXXX
+      - KOMETA_OMDBAPI=XXXX
+      - KOMETA_MDBLISTAPI=XXXX
+      - KOMETA_TRAKTCLIENTID=XXXX
+      - KOMETA_TRAKTCLIENTSECRET=XXXX
+      - KOMETA_TRAKTPIN=XXXX
+      - KOMETA_DISCORDWEBHOOK=XXXX
+    network_mode: mybridge
+    dns: 
+      - 192.168.1.25 #pihole1
+      - 192.168.1.15 #pihole2
+    restart: always
+    
