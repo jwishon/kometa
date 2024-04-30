@@ -16,51 +16,39 @@ libraries:          # Library mappings must have a colon (:) placed after them  
     - metadata
     - operations
     - overlays
-
-    schedule_overlays:  hourly(02-20)
-
-    remove_overlays: false                                     # This will remove all overlays from your library every run, but will not delete the overlaid images from your system, resulting in image bloat.
-    reapply_overlays: true                                     # This will reapply all overlays on each run, which will result in image bloat.
-#    reset_overlays: plex                                      # This will reset overlays to plex or tmdb Utill set to false or removed this will reset all posters to the desired source on each run and will reapply all overlays on each run, which will result in image bloat.
+    schedule_overlays: hourly(02-20)
+    remove_overlays: false # Set this to true to remove all overlays
+    reapply_overlays: false # This will reapply all overlays on each run, which will result in image bloat.
+    #reset_overlays: plex # This will reset overlays to plex or tmdb Utill unless set to false                                      
 
     report_path: config/reports/TV_Report.yml
 
-#    metadata_files:
-#     - file: config/assistant/TV-Shows-returning-soon-metadata.yml
+    #metadata_files:
+    #- file: config/assistant/TV-Shows-returning-soon-metadata.yml
 
     collection_files:
-
     - file: config/TV_Collections.yml
 
     overlay_files:
-
     - file: config/TV_Overlays.yml
-    - file: config/TV_Ratings_Overlays.yml
-
-#    - pmm: streaming
-#      schedule: non_existing
-#      template_variables:
-#        vertical_offset: 15
-
-    - pmm: commonsense                                          #content_rating_us_show
-#      schedule: non_existing
+    #- folder: config/overlays/
+    
+    - default: commonsense #content_rating_us_show
       template_variables:
         back_color: 00
         horizontal_align: left
         vertical_offset: 20
         vertical_align: bottom
-
-    - pmm: commonsense                                          #content_rating_us_show
-#      schedule: non_existing
+    
+    - default: commonsense #content_rating_us_show
       template_variables:
         overlay_level: season
         back_color: 00
         horizontal_align: left
         vertical_offset: 20
         vertical_align: bottom
-
-    - pmm: commonsense                                          #content_rating_us_show
-#      schedule: non_existing
+    
+    - default: commonsense #content_rating_us_show
       template_variables:
         overlay_level: episode
         back_color: 00
@@ -68,35 +56,21 @@ libraries:          # Library mappings must have a colon (:) placed after them  
         vertical_offset: 20
         vertical_align: bottom
 
-#    - pmm: ratings
-#      schedule: non_existing
-#      template_variables:
-
-##        rating1: user
-##        rating1_image: rt_popcorn
-
-##        rating2: critic
-##        rating2_image: imdb
-
-#        rating3: audience
-#        rating3_image: tmdb
-#        horizontal_align: right
-#        vertical_align: bottom
-
-    - pmm: resolution
-#      schedule: non_existing
+    - default: resolution
       template_variables:
         overlay_level: episode
 
-    - pmm: episode_info
-#      schedule: non_existing
-      template_variables:
-        overlay_level: episode
+    #- default: episode_info
+      #template_variables:
+        #overlay_level: episode
+        #horizontal_align: right
+        #vertical_align: top
 
-    - pmm: runtimes
-#      schedule: non_existing
+    - default: runtimes
       template_variables:
-        overlay_level: episode
+        back_width: 300
+        text: ''
+        builder_level: episode
 
 ####################################################################################
 ##                        TV Show  Settings                                       ##
@@ -105,111 +79,72 @@ libraries:          # Library mappings must have a colon (:) placed after them  
     operations:
       split_duplicates: false
       assets_for_all: false
-
-      delete_unmanaged_collections: false                       # Any manually added collection outside of PMM will be deleted
-
-      delete_collections:                                       # Deletes collections based on conditions below
-        configured: false                                       #False/True Removes all Managed Collections (Collections with the PMM Label) that are not configured in the Current Run.
+      delete_unmanaged_collections: false # Any manually added collection outside of PMM will be deleted
+      delete_collections: # Deletes collections based on conditions below
+        configured: false #False/True Removes all Managed Collections (Collections with the PMM Label) that are not configured in the Current Run.
         managed: true
-        less: 1                                                 # Collections with less than 1 movie/show in it will be deleted
-
-#       managed: true                                           # (Deletes PMM label Collections)
-#       managed: false                                          # (Deletes no PMM label collections)
-#       configured: true                                        # (Deletes collections in the config file)
-#       configured: false                                       # (Deletes collections not in the config file)
-
-      mass_critic_rating_update: imdb                           # Rating 2
-      mass_audience_rating_update: tmdb                         # mdb_tomoatoesaudience #mdb_metacritic # Rating 3
-      mass_user_rating_update: mdb_tomatoes                     # tmdb #Rating 1
-
-#      mass_poster_update:                                      # Updates every item's poster to the chosen sites poster. Will fall back to plex if the given option fails. Assets will be used over anything else.
-#        source: plex
-#        seasons: true
-#        episodes: true
-
+        less: 1  # Collections with less than 1 movie/show in it will be deleted
+       #managed: true # (Deletes PMM label Collections)                                           
+       #managed: false # (Deletes no PMM label collections)                                          
+       #configured: true # (Deletes collections in the config file)                                      
+       #configured: false # (Deletes collections not in the config file)                                      
+      mass_critic_rating_update: imdb # Rating 2
+      mass_audience_rating_update: tmdb # mdb_tomoatoesaudience #mdb_metacritic # Rating 3
+      mass_user_rating_update: mdb_tomatoes # tmdb #Rating 1
+        #mass_poster_update: # Updates every item's poster to the chosen sites poster. Will fall back to plex if the given option fails. Assets will be used over anything else.                                      
+        #source: plex
+        #seasons: true
+        #episodes: true
       mass_episode_critic_rating_update: imdb
       mass_episode_audience_rating_update: tmdb
       mass_genre_update: tmdb
-      mass_content_rating_update: mdb_commonsense               # Changes Content Rating to "1", "2" etc. to specify appropriate age
-      mass_originally_available_update: tmdb                    # Update all original available date from tmdb (episode air date example)
-      mass_imdb_parental_labels: none #without_none             # Updates all parental labels - Violence, Mild Nudity, Smoking, Foul Language, etc.
+      mass_content_rating_update:
+        - mdb_commonsense # Changes Content Rating to "1", "2" etc. to specify appropriate age
+        - mdb_age_rating # Use MDbList Age Rating for Content Ratings      
+      mass_originally_available_update: tmdb # Update all original available date from tmdb (episode air date example)
+      mass_imdb_parental_labels: none # Updates all parental labels - Violence, Mild Nudity, Smoking, Foul Language, etc.
 
 ####################################################################################
 ##                                 Movies                                         ##
 ####################################################################################
 
   Movies:
-    run_order: 
+    run_order:
     - collections
     - metadata
     - operations
     - overlays
 
-#    schedule: hourly # (3) hour of day
-#    schedule_overlays: hourly(02-20)
-
-    remove_overlays: false                                     # This will remove all overlays from your library every run, but will not delete the overlaid images from your system, resulting in image bloat.
-    reapply_overlays: true                                     # This will reapply all overlays on each run, which will result in image bloat.
-#    reset_overlays: tmdb                                      # This will reset overlays to plex or tmdb Utill set to false or removed this will reset all posters to the desired source on each run and will reapply all overlays on each run, which will result in image bloat.
-
+    #schedule: hourly # (3) hour of day
+    #schedule_overlays: hourly(02-20)
+    remove_overlays: false # This will remove all overlays from your library every run, but will not delete the overlaid images from your system, resulting in image bloat.
+    reapply_overlays: false # This will reapply all overlays on each run, which will result in image bloat.
+    #reset_overlays: tmdb # This will reset overlays to plex or tmdb Utill set to false or removed this will reset all posters to the desired source on each run and will reapply all overlays on each run, which will result in image bloat.                                      
     report_path: config/reports/Movies_Report.yml
 
-#    metadata_files:
-#     - file: config/metadata.yml
+    #metadata_files:
+    #- file: config/metadata.yml
 
     collection_files:
     - file: config/Movies_Collections.yml
 
     overlay_files:
     - file: config/Movies_Overlays.yml
-    - file: config/Movies_Ratings_Overlays.yml
+    #- folder: config/overlays/
 
-#    - pmm: seasonal
-#      schedule: non_existing
-
-    - pmm: mediastinger
-#      schedule: non_existing
+    - default: mediastinger
       template_variables:
         horizontal_align: left
         vertical_align: top
         vertical_offset: 280
-
-#    - pmm: runtimes
-#      schedule: non_existing
-
-#    - pmm: resolution
-#      schedule: non_existing
-
-#    - pmm: streaming
-#      schedule: non_existing
-
-    - pmm: commonsense                                          #content_rating_us_movie
-#      schedule: non_existing
+    
+    - default: commonsense #content_rating_us_movie
       template_variables:
-#        back_color: 00
-        horizontal_align: left
-        vertical_align: top
-        vertical_offset: 160
-
-#    - pmm: ratings
-#      schedule: non_existing
-#      template_variables:
-
-#        rating1: user
-#        rating1_image: rt_popcorn
-
-#        rating2: critic
-#        rating2_image: imdb
-
-#        rating3: audience
-#        rating3_image: tmdb
-
-#        horizontal_position: right
-#        vertical_align: bottom
-
-#playlist_files:
-#  - file: config/playlists.yml
-#  - pmm: playlist
+        back_color: 00
+        horizontal_align: center #left
+        horizontal_offset: 40
+        vertical_align: bottom #top
+        #vertical_offset: 80 #160
 
 ####################################################################################
 ##                         Movie   Settings                                       ##
@@ -218,27 +153,28 @@ libraries:          # Library mappings must have a colon (:) placed after them  
     operations:
       split_duplicates: false
       assets_for_all: false
-
-      delete_unmanaged_collections: false                       # Any manually added collection outside of PMM will be deleted
-
-      delete_collections:                                       # Deletes collections based on conditions below
-        configured: false                                       #False/True Removes all Managed Collections (Collections with the PMM Label) that are not configured in the Current Run.
+      
+      delete_unmanaged_collections: false # Any manually added collection outside of PMM will be deleted
+      delete_collections: # Deletes collections based on conditions below
+        configured: false #False/True Removes all Managed Collections (Collections with the PMM Label) that are not configured in the Current Run.
         managed: true
-        less: 1                                                 # Collections with less than 1 movie/show in it will be deleted
-
-#       managed: true                                           # (Deletes PMM label Collections)
-#       managed: false                                          # (Deletes no PMM label collections)
-#       configured: true                                        # (Deletes collections in the config file)
-#       configured: false                                       # (Deletes collections not in the config file)
-
-#      mass_poster_update: plex                                  #  Updates every item's poster to the chosen sites poster. Will fall back to plex if the given option fails. Assets will be used over anything else.
-      mass_critic_rating_update: imdb                           # Rating 2
-      mass_audience_rating_update: tmdb                         # mdb_tomoatoesaudience #mdb_metacritic # Rating 3
-      mass_user_rating_update: mdb_tomatoes                     # tmdb #Rating 1   
+        less: 1 # Collections with less than 1 movie/show in it will be deleted
+        #managed: true # (Deletes PMM label Collections)                                           
+        #managed: false # (Deletes no PMM label collections)                                          
+        #configured: true # (Deletes collections in the config file)                                        
+        #configured: false # (Deletes collections not in the config file)                                      
+      #mass_poster_update: plex #  Updates every item's poster to the chosen sites poster. Will fall back to plex if the given option fails. Assets will be used over anything else.                                 
+      mass_critic_rating_update: imdb # Rating 2
+      mass_audience_rating_update: tmdb # mdb_tomoatoesaudience #mdb_metacritic # Rating 3
+      mass_user_rating_update: mdb_tomatoes # tmdb #Rating 1   
       mass_genre_update: tmdb
-      mass_content_rating_update: mdb_commonsense               # Changes Content Rating to "1", "2" etc. to specify appropriate age
+      mass_content_rating_update: 
+        - mdb_commonsense # Changes Content Rating to "1", "2" etc. to specify appropriate age
+        - mdb # Use MdbList for Content Ratings
+        - mdb_age_rating # Use MDbList Age Rating for Content Ratings
+        - NR
       mass_originally_available_update: tmdb
-      mass_imdb_parental_labels: none                           # without_none
+      mass_imdb_parental_labels: none
 
 ####################################################################################
 ##                             PMM   Settings                                     ##
@@ -288,7 +224,7 @@ settings:
   show_options: false
   show_unmanaged: true
   show_unconfigured: true
-  sync_mode: sync #append                                       # append/sync - append doesn't remove items from a collection - sync does
+  sync_mode: sync #append # append/sync - append doesn't remove items from a collection - sync does                                      
   tvdb_language: eng
   verify_ssl: true
 
@@ -296,48 +232,48 @@ settings:
 ##                         Connection Settings                                    ##
 ####################################################################################
 
-webhooks:                        # Can be individually specified per library as well
+webhooks:
+  version: https://discord.com/api/webhooks/<<DISCORDWEBHOOK>>
+  run_start: https://discord.com/api/webhooks/<<DISCORDWEBHOOK>>
+  run_end: https://discord.com/api/webhooks/<<DISCORDWEBHOOK>>
+  changes: https://discord.com/api/webhooks/<<DISCORDWEBHOOK>>
+  delete: https://discord.com/api/webhooks/<<DISCORDWEBHOOK>>
+  error: https://discord.com/api/webhooks/<<DISCORDWEBHOOK>>
 
-  version: ${DISCORD_WEBHOOK)
-  run_start: ${DISCORD_WEBHOOK)
-  run_end: ${DISCORD_WEBHOOK)
-  changes: ${DISCORD_WEBHOOK)
-  delete: ${DISCORD_WEBHOOK)
-  error: ${DISCORD_WEBHOOK)
-
-plex:                            # Can be individually specified per library as well; REQUIRED for the script to run
-  url: ${PLEX_URL}
-  token: ${PLEX_TOKEN}
+plex:
+  url: http://<<PLEXURL>>
+  token: <<PLEXTOKEN>>
   timeout: 60
   clean_bundles: true
   empty_trash: false
   optimize: false
   db_cache:
+  verify_ssl:
 
-tmdb:                            # REQUIRED for the script to run
-  apikey: ${TMDB_API}
+tmdb:
+  apikey: <<TMDBAPI>>
   language: en
   cache_expiration: 60
   region:
 
-tautulli:                        # Can be individually specified per library as well
-  url: ${TAUTULLI_URL}
-  apikey: ${TAUTULLI_API}
+tautulli:
+  url: http://<<TAUTULLIURL>>
+  apikey: <<TAUTULLIAPI>>
 
 omdb:
-  apikey: ${OMDB_API}
+  apikey: <<OMDBAPI>>
   cache_expiration: 60
 
 mdblist:
-  apikey: ${MDBLIST_API}
+  apikey: <<MDBLISTAPI>>
   cache_expiration: 60
 
 #notifiarr:
-  #apikey: ${NOTIFIER_API}
+  #apikey: 78847f76-8758-4dc9-a00c-f53c3c50ce33
 
-radarr:                          # Can be individually specified per library as well
-  url: ${RADARR_URL}
-  token: ${RADARR_Token}
+radarr:
+  url: http://<<RADARRURL>>
+  token: <<RADARRTOKEN>>
   add_missing: false
   add_existing: false
   root_folder_path: /movies
@@ -350,10 +286,11 @@ radarr:                          # Can be individually specified per library as 
   plex_path:
   ignore_cache: false
   upgrade_existing: false
+  monitor_existing: false 
 
-sonarr:                          # Can be individually specified per library as well
-  url: ${SONARR_URL}
-  token: ${SONARR_TOKEN}
+sonarr:
+  url: http://<<SONARRURL>>
+  token: <<SONARRTOKEN>>
   add_missing: false
   add_existing: false
   root_folder_path: /TV
@@ -369,31 +306,21 @@ sonarr:                          # Can be individually specified per library as 
   plex_path:
   ignore_cache: false
   upgrade_existing: false
+  monitor_existing: false
 
 trakt:
-  client_id: ${TRAKT_CLIENT_ID}
-  client_secret: ${TRAKT_CLIENT_SECRET}
-  pin: ${TRAKT_PIN}
+  client_id: <<TRAKTCLIENTID>>
+  client_secret: <<TRAKTCLIENTSECRET>>
+  pin:
   authorization:
 #   everything below is autofilled by the script
-    access_token: 
-    token_type: 
-    expires_in: 
-    refresh_token: 
-    scope: 
-    created_at: 
+    access_token: XXXXX
+    token_type: Bearer
+    expires_in: 7889238
+    refresh_token: XXXXX
+    scope: public
+    created_at: 1711531823
   upgrade_existing: false
-
-#mal:         # My Anime List
-#  client_id: ####################
-#  client_secret: ####################
-#  authorization:
-#    # everything below is autofilled by the script
-#    access_token:
-#    token_type:
-#    expires_in:
-#    refresh_token:
-
 
 ####################################################################################
 ##                                    END                                         ##
