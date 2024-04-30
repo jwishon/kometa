@@ -1,6 +1,6 @@
-# Riptide9's Plex-Meta-Manger-Config
+# Riptide9's Kometa (Plex-Meta-Manger-Config)
 
-# My personal Plex Meta Manager config and setup
+# My personal Kometa config and setup
 
 See example config.yml for examples on how to use.
 
