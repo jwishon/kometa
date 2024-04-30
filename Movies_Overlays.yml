@@ -5,63 +5,62 @@
 overlays:
 
 ### RESOLUTIONS ###
-#  4k_dv:
-#    overlay:
-#      name: 4k_dv
-#      group: resolution-4k
-#      weight: 120
-#    plex_search:
-#      all:
-#        resolution.regex: '(?i)2160|4k'
-#      validate: false
-#    filters:
-#      has_dolby_vision: true
 
-#  4k_hdr:
-#    overlay:
-#      name: 4k_hdr
-#      group: resolution-4k
-#      weight: 110
-#    plex_search:
-#      all:
-#        resolution.regex: '(?i)2160|4k'
-#        hdr: true
-#      validate: false
+  4k_dv:
+    overlay:
+      name: 4k_dv
+      group: resolution-4k
+      weight: 120
+    plex_search:
+      all:
+        resolution.regex: '(?i)2160|4k'
+      validate: false
+    filters:
+      has_dolby_vision: true
 
-#  4k:
-#    overlay:
-#      name: 4k
-#      group: resolution-4k
-#      weight: 100
-#    plex_search:
-#      all:
-#        resolution.regex: '(?i)2160|4k'
-#      validate: false
+  4k_hdr:
+    overlay:
+      name: 4k_hdr
+      group: resolution-4k
+      weight: 110
+    plex_search:
+      all:
+        resolution.regex: '(?i)2160|4k'
+        hdr: true
+      validate: false
+  4k:
+    overlay:
+      name: 4k
+      group: resolution-4k
+      weight: 100
+    plex_search:
+      all:
+        resolution.regex: '(?i)2160|4k'
+      validate: false
 
-#  1080p_dv:
-#    overlay:
-#      name: 1080p_dv
-#      group: resolution-1080p
-#      weight: 120
-#    plex_search:
-#      all:
-#        resolution.regex: '(?i)1080|2k'
-#      validate: false
-#    filters:
-#      has_dolby_vision: true
-#      validate: false
+  1080p_dv:
+    overlay:
+      name: 1080p_dv
+      group: resolution-1080p
+      weight: 120
+    plex_search:
+      all:
+        resolution.regex: '(?i)1080|2k'
+      validate: false
+    filters:
+      has_dolby_vision: true
+      validate: false
 
-#  1080p_hdr:
-#    overlay:
-#      name: 1080p_hdr
-#      group: resolution-1080p
-#      weight: 110
-#    plex_search:
-#      all:
-#        resolution.regex: '(?i)1080|2k'
-#        hdr: true
-#      validate: false
-
+  1080p_hdr:
+    overlay:
+      name: 1080p_hdr
+      group: resolution-1080p
+      weight: 110
+    plex_search:
+      all:
+        resolution.regex: '(?i)1080|2k'
+        hdr: true
+      validate: false
   1080p:
     overlay:
       name: 1080p
@@ -105,55 +104,55 @@ overlays:
 ### RESOLUTIONS ###
 
 ### NETWORKS ###
+# https://mdblist.com/lists/k0meta/
 
   Netflix:
     overlay:
       name: netflix
       group: ICONS-movie
       weight: 800
-    mdblist_list: https://mdblist.com/lists/plexmetamanager/netflix-movies
-
+    mdblist_list: https://mdblist.com/lists/k0meta/netflix-originals
   Disney:
     overlay:
       name: disney
       group: ICONS-movie
       weight: 775
-    mdblist_list: https://mdblist.com/lists/plexmetamanager/disney-movies
+    mdblist_list: https://mdblist.com/lists/k0meta/disney-originals
 
   HBO:
     overlay:
       name: hbomax
       group: ICONS-movie
       weight: 700
-    mdblist_list: https://mdblist.com/lists/plexmetamanager/hbomax-movies
+    mdblist_list: https://mdblist.com/lists/k0meta/hbomax-originals
 
   Hulu:
     overlay:
       name: hulu
       group: ICONS-movie
       weight: 650
-    mdblist_list: https://mdblist.com/lists/plexmetamanager/hulu-movies
+    mdblist_list: https://mdblist.com/lists/k0meta/hulu-originals
 
   Paramount:
     overlay:
       name: paramount
       group: ICONS-movie
       weight: 625
-    mdblist_list: https://mdblist.com/lists/plexmetamanager/paramount-movies
+    mdblist_list: https://mdblist.com/lists/k0meta/paramount-originals
 
   AppleTV:
     overlay:
       name: apple
       group: ICONS-movie
       weight: 750
-    mdblist_list: https://mdblist.com/lists/plexmetamanager/appletv-movies
+    mdblist_list: https://mdblist.com/lists/k0meta/appletv-originals
 
   Prime:
     overlay:
       name: prime
       group: ICONS-movie
       weight: 675
-    mdblist_list: https://mdblist.com/lists/plexmetamanager/amazon-movies
+    mdblist_list: https://mdblist.com/lists/k0meta/amazon-originals
 
   Plex:
     overlay:
@@ -164,7 +163,99 @@ overlays:
 
 ### NETWORKS ###
 
-### RATINGS ###
+### Ratings ####
+
+  rating_highest:
+    overlay:
+      font_color: "#FFFFFF" #74AB61
+      back_color: "#4c9539DD"
+      group: rating_text
+      name: text(critic_rating)
+      rating_type: critic_rating
+      weight: 20
+      font: config/fonts/Poppins-Bold.ttf
+      font_size: 70
+      back_radius: 20
+      back_width: 165
+      back_height: 70
+      horizontal_offset: 30
+      horizontal_align: right 
+      vertical_offset: 30
+      vertical_align: bottom
+    plex_search:
+      all:
+        critic_rating.gte: 7.6
+        critic_rating.lte: 9.9
+        
+  rating_high:
+    overlay:
+      font_color: "#FFFFFF" #C3F0B8
+      back_color: "#39702BDD"
+      group: rating_text
+      name: text(critic_rating)
+      rating_type: critic_rating
+      weight: 20
+      font: config/fonts/Poppins-Bold.ttf
+      font_size: 70
+      back_radius: 20
+      back_width: 165
+      back_height: 70
+      horizontal_offset: 30
+      horizontal_align: right
+      vertical_offset: 30
+      vertical_align: bottom
+    plex_search:
+      all:
+        critic_rating.gte: 6.5
+        critic_rating.lte: 7.5
+        
+  rating_mid:
+    overlay:
+      font_color: "#FFFFFF" #7A4300
+      back_color: "#e5a00dDD"
+      group: rating_text
+      name: text(critic_rating)
+      rating_type: critic_rating
+      weight: 20
+      font: config/fonts/Poppins-Bold.ttf
+      font_size: 70
+      back_radius: 20
+      back_width: 165
+      back_height: 70
+      horizontal_offset: 30
+      horizontal_align: right
+      vertical_offset: 30
+      vertical_align: bottom
+    plex_search:
+      all:
+        critic_rating.gte: 4.5
+        critic_rating.lte: 6.4
+
+  rating_low:
+    overlay:
+      font_color: "#FFFFFF" #FFB3C0
+      back_color: "#cc0000DD"
+      group: rating_text
+      name: text(critic_rating)
+      rating_type: critic_rating
+      weight: 20
+      font: config/fonts/Poppins-Bold.ttf
+      font_size: 70
+      back_radius: 20
+      back_width: 165
+      back_height: 70
+      horizontal_offset: 30
+      horizontal_align: right
+      vertical_offset: 30
+      vertical_align: bottom
+    plex_search:
+      all:
+        critic_rating.gte: 0.1
+        critic_rating.lte: 4.4
+
+### Ratings ####
+
+### RATINGS Dial ###
 
   Rating_0:
     overlay:
@@ -1171,7 +1262,7 @@ overlays:
       all:
         audience_rating.gte: 0.1
 
-### RATINGS ###
+### RATINGS Dial ###
 
 ### IMDB PARENTAL RATING ###
 
@@ -1348,7 +1439,12 @@ overlays:
           - R - 17+ (violence & profanity)
           - TVMA
           - TV-MA
+          - NC-17
           - MA-17
+          - R+ - Mild Nudity
+          - no/18
+          - no/16
+          - no/15
       validate: false
 
   pg-13:
@@ -1359,10 +1455,13 @@ overlays:
     plex_search:
       any:
         content_rating: 
+          - 12+
           - 13
           - PG-13
           - PG-13 - Teens 13 or older
           - TV-14
+          - no/12
+          - no/11
       validate: false
 
   pg:
@@ -1374,7 +1473,9 @@ overlays:
       any:
         content_rating: 
           - 6
-          - 06
+          - "06"
+          - "07"
+          - "08"
           - GP
           - PG
           - PG - Children
@@ -1383,6 +1484,11 @@ overlays:
           - TV-PG
           - no/6
           - no/06
+          - no/07
+          - no/08
+          - no/09
+          - no/10
+          - no/11
           - TV-Y7
       validate: false
 
@@ -1395,7 +1501,11 @@ overlays:
       any:
         content_rating: 
           - 1
-          - 01
+          - "01"
+          - "02"
+          - "03"
+          - "04"
+          - "05"
           - G
           - TV-G
           - TV-Y
@@ -1410,6 +1520,13 @@ overlays:
           - no/05
       validate: false
         
+  base:
+    overlay:
+      name: nr
+      group: rating
+      weight: 7
+    plex_all: true
+
 ### CONTENT RATING ###
 
 ######################################################
