@@ -1,4 +1,4 @@
-# Riptide9's Kometa (Plex-Meta-Manger-Config)
+# Riptide9's Kometa (Plex-Meta-Manger)
 
 # My personal Kometa config and setup
 
