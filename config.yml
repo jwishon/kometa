@@ -1,16 +1,41 @@
-####################################################################################
-##                               config.yml                                       ##
-####################################################################################
+######################################################################################################################
+#    _____  _       _   _     _         ___  
+#   |  __ \(_)     | | (_)   | |       / _ \ 
+#   | |__) |_ _ __ | |_ _  __| | ___  | (_) |
+#   |  _  /| | '_ \| __| |/ _` |/ _ \  \__, |
+#   | | \ \| | |_) | |_| | (_| |  __/    / / 
+#   |_|  \_\_| .__/ \__|_|\__,_|\___|   /_/  
+#            | |                             
+#            |_|                             
+######################################################################################################################
 
-####################################################################################
-libraries:          # Library mappings must have a colon (:) placed after them    ##
-####################################################################################
+######################################################################################################################
+#     _____             __ _                          _ 
+#    / ____|           / _(_)                        | |
+#   | |     ___  _ __ | |_ _  __ _    _   _ _ __ ___ | |
+#   | |    / _ \| '_ \|  _| |/ _` |  | | | | '_ ` _ \| |
+#   | |___| (_) | | | | | | | (_| |  | |_| | | | | | | |
+#    \_____\___/|_| |_|_| |_|\__, | (_)__, |_| |_| |_|_|
+#                             __/ |    __/ |            
+#                            |___/    |___/             
+######################################################################################################################
 
-####################################################################################
-##                                 TV Shows                                       ##
-####################################################################################
+######################################################################################################################
+libraries:          # Library mappings must have a colon (:) placed after them                                      ##
+######################################################################################################################
+
+######################################################################################################################
+#    _________      __   _____ _                       
+#   |__   __\ \    / /  / ____| |                      
+#      | |   \ \  / /  | (___ | |__   _____      _____ 
+#      | |    \ \/ /    \___ \| '_ \ / _ \ \ /\ / / __|
+#      | |     \  /     ____) | | | | (_) \ V  V /\__ \
+#      |_|      \/     |_____/|_| |_|\___/ \_/\_/ |___/
+#                                                      
+######################################################################################################################
 
   TV Shows:
+
     schedule_overlays: hourly(02-20)
     remove_overlays: false # Set this to true to remove all overlays
     reapply_overlays: false # This will reapply all overlays on each run, which will result in image bloat.
@@ -27,14 +52,13 @@ libraries:          # Library mappings must have a colon (:) placed after them  
     overlay_files:
     - file: config/TV_Overlays.yml
     #- folder: config/overlays/
-    
     - default: commonsense #content_rating_us_show
       template_variables:
         back_color: 00
         horizontal_align: left
         vertical_offset: 20
         vertical_align: bottom
-    
+
     - default: commonsense #content_rating_us_show
       template_variables:
         overlay_level: season
@@ -42,7 +66,7 @@ libraries:          # Library mappings must have a colon (:) placed after them  
         horizontal_align: left
         vertical_offset: 20
         vertical_align: bottom
-    
+
     - default: commonsense #content_rating_us_show
       template_variables:
         overlay_level: episode
@@ -55,21 +79,22 @@ libraries:          # Library mappings must have a colon (:) placed after them  
       template_variables:
         overlay_level: episode
 
-    #- default: episode_info
-      #template_variables:
-        #overlay_level: episode
-        #horizontal_align: right
-        #vertical_align: top
-
     - default: runtimes
       template_variables:
         back_width: 300
         text: ''
         builder_level: episode
 
-####################################################################################
-##                        TV Show  Settings                                       ##
-####################################################################################
+######################################################################################################################
+#    _________      __   _____ _                          ____                       _   _                 
+#   |__   __\ \    / /  / ____| |                        / __ \                     | | (_)                
+#      | |   \ \  / /  | (___ | |__   _____      _____  | |  | |_ __   ___ _ __ __ _| |_ _  ___  _ __  ___ 
+#      | |    \ \/ /    \___ \| '_ \ / _ \ \ /\ / / __| | |  | | '_ \ / _ \ '__/ _` | __| |/ _ \| '_ \/ __|
+#      | |     \  /     ____) | | | | (_) \ V  V /\__ \ | |__| | |_) |  __/ | | (_| | |_| | (_) | | | \__ \
+#      |_|      \/     |_____/|_| |_|\___/ \_/\_/ |___/  \____/| .__/ \___|_|  \__,_|\__|_|\___/|_| |_|___/
+#                                                              | |                                         
+#                                                              |_|                                         
+######################################################################################################################
 
     operations:
       split_duplicates: false
@@ -94,16 +119,25 @@ libraries:          # Library mappings must have a colon (:) placed after them  
       mass_episode_audience_rating_update: tmdb
       mass_genre_update: tmdb
       mass_content_rating_update:
-        - mdb_commonsense # Changes Content Rating to "1", "2" etc. to specify appropriate age
-        - mdb_age_rating # Use MDbList Age Rating for Content Ratings      
+      - mdb_commonsense   # Changes Content Rating to "1", "2" etc. to specify appropriate age
+      - mdb_age_rating   # Use MDbList Age Rating for Content Ratings      
       mass_originally_available_update: tmdb # Update all original available date from tmdb (episode air date example)
       mass_imdb_parental_labels: none # Updates all parental labels - Violence, Mild Nudity, Smoking, Foul Language, etc.
 
-####################################################################################
-##                                 Movies                                         ##
-####################################################################################
+
+######################################################################################################################
+#    __  __            _           
+#   |  \/  |          (_)          
+#   | \  / | _____   ___  ___  ___ 
+#   | |\/| |/ _ \ \ / / |/ _ \/ __|
+#   | |  | | (_) \ V /| |  __/\__ \
+#   |_|  |_|\___/ \_/ |_|\___||___/
+#                                  
+#                                  
+######################################################################################################################                            
 
   Movies:
+
     #schedule: hourly # (3) hour of day
     #schedule_overlays: hourly(02-20)
     remove_overlays: false # This will remove all overlays from your library every run, but will not delete the overlaid images from your system, resulting in image bloat.
@@ -126,7 +160,7 @@ libraries:          # Library mappings must have a colon (:) placed after them  
         horizontal_align: left
         vertical_align: top
         vertical_offset: 280
-    
+
     - default: commonsense #content_rating_us_movie
       template_variables:
         back_color: 00
@@ -135,14 +169,21 @@ libraries:          # Library mappings must have a colon (:) placed after them  
         vertical_align: bottom #top
         #vertical_offset: 80 #160
 
-####################################################################################
-##                         Movie   Settings                                       ##
-####################################################################################  
+######################################################################################################################
+#    __  __            _              ____                       _   _                 
+#   |  \/  |          (_)            / __ \                     | | (_)                
+#   | \  / | _____   ___  ___  ___  | |  | |_ __   ___ _ __ __ _| |_ _  ___  _ __  ___ 
+#   | |\/| |/ _ \ \ / / |/ _ \/ __| | |  | | '_ \ / _ \ '__/ _` | __| |/ _ \| '_ \/ __|
+#   | |  | | (_) \ V /| |  __/\__ \ | |__| | |_) |  __/ | | (_| | |_| | (_) | | | \__ \
+#   |_|  |_|\___/ \_/ |_|\___||___/  \____/| .__/ \___|_|  \__,_|\__|_|\___/|_| |_|___/
+#                                          | |                                         
+#                                          |_|                                         
+######################################################################################################################
 
     operations:
       split_duplicates: false
       assets_for_all: false
-      
+
       delete_unmanaged_collections: false # Any manually added collection outside of PMM will be deleted
       delete_collections: # Deletes collections based on conditions below
         configured: false #False/True Removes all Managed Collections (Collections with the PMM Label) that are not configured in the Current Run.
@@ -157,20 +198,26 @@ libraries:          # Library mappings must have a colon (:) placed after them  
       mass_audience_rating_update: tmdb # mdb_tomoatoesaudience #mdb_metacritic # Rating 3
       mass_user_rating_update: mdb_tomatoes # tmdb #Rating 1   
       mass_genre_update: tmdb
-      mass_content_rating_update: 
-        - mdb_commonsense # Changes Content Rating to "1", "2" etc. to specify appropriate age
-        - mdb # Use MdbList for Content Ratings
-        - mdb_age_rating # Use MDbList Age Rating for Content Ratings
-        - NR
+      mass_content_rating_update:
+      - mdb_commonsense   # Changes Content Rating to "1", "2" etc. to specify appropriate age
+      - mdb   # Use MdbList for Content Ratings
+      - mdb_age_rating   # Use MDbList Age Rating for Content Ratings
+      - NR
       mass_originally_available_update: tmdb
       mass_imdb_parental_labels: none
 
-####################################################################################
-##                             PMM   Settings                                     ##
-####################################################################################
+######################################################################################################################
+#     _____ _       _           _    _____      _   _   _                 
+#    / ____| |     | |         | |  / ____|    | | | | (_)                
+#   | |  __| | ___ | |__   __ _| | | (___   ___| |_| |_ _ _ __   __ _ ___ 
+#   | | |_ | |/ _ \| '_ \ / _` | |  \___ \ / _ \ __| __| | '_ \ / _` / __|
+#   | |__| | | (_) | |_) | (_| | |  ____) |  __/ |_| |_| | | | | (_| \__ \
+#    \_____|_|\___/|_.__/ \__,_|_| |_____/ \___|\__|\__|_|_| |_|\__, |___/
+#                                                                __/ |    
+#                                                               |___/     
+######################################################################################################################
 
 settings:
-
   assets_for_all: false
   asset_depth: 1
   asset_directory: plex/assets
@@ -213,13 +260,20 @@ settings:
   show_options: false
   show_unmanaged: true
   show_unconfigured: true
-  sync_mode: sync #append # append/sync - append doesn't remove items from a collection - sync does                                      
+  sync_mode: sync #append # append/sync - append doesn't remove items from a collection - sync does
   tvdb_language: eng
   verify_ssl: true
 
-####################################################################################
-##                         Connection Settings                                    ##
-####################################################################################
+######################################################################################################################
+#     ____  _   _                  _____      _   _   _                 
+#    / __ \| | | |                / ____|    | | | | (_)                
+#   | |  | | |_| |__   ___ _ __  | (___   ___| |_| |_ _ _ __   __ _ ___ 
+#   | |  | | __| '_ \ / _ \ '__|  \___ \ / _ \ __| __| | '_ \ / _` / __|
+#   | |__| | |_| | | |  __/ |     ____) |  __/ |_| |_| | | | | (_| \__ \
+#    \____/ \__|_| |_|\___|_|    |_____/ \___|\__|\__|_|_| |_|\__, |___/
+#                                                              __/ |    
+#                                                             |___/     
+######################################################################################################################
 
 webhooks:
   version: https://discord.com/api/webhooks/<<DISCORDWEBHOOK>>
@@ -258,7 +312,7 @@ mdblist:
   cache_expiration: 60
 
 #notifiarr:
-  #apikey: 78847f76-8758-4dc9-a00c-f53c3c50ce33
+  #apikey: <<NOTIFIERAPI>>
 
 radarr:
   url: http://<<RADARRURL>>
@@ -275,7 +329,7 @@ radarr:
   plex_path:
   ignore_cache: false
   upgrade_existing: false
-  monitor_existing: false 
+  monitor_existing: false
 
 sonarr:
   url: http://<<SONARRURL>>
@@ -303,14 +357,20 @@ trakt:
   pin:
   authorization:
 #   everything below is autofilled by the script
-    access_token: XXXXX
-    token_type: Bearer
-    expires_in: 7889238
-    refresh_token: XXXXX
+    access_token: 
+    token_type: 
+    expires_in: 
+    refresh_token: 
     scope: public
-    created_at: 1711531823
+    created_at: 
   upgrade_existing: false
 
-####################################################################################
-##                                    END                                         ##
-####################################################################################
+######################################################################################################################
+#    ______ _   _ _____  
+#   |  ____| \ | |  __ \ 
+#   | |__  |  \| | |  | |
+#   |  __| | . ` | |  | |
+#   | |____| |\  | |__| |
+#   |______|_| \_|_____/ 
+#                        
+######################################################################################################################
