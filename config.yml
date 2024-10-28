@@ -12,9 +12,9 @@ libraries:          # Library mappings must have a colon (:) placed after them  
 
   TV Shows:
     run_order:
-    - collections
-    - metadata
     - operations
+    - metadata
+    - collections
     - overlays
     schedule_overlays: hourly(02-20)
     remove_overlays: false # Set this to true to remove all overlays
@@ -110,9 +110,9 @@ libraries:          # Library mappings must have a colon (:) placed after them  
 
   Movies:
     run_order:
-    - collections
-    - metadata
     - operations
+    - metadata
+    - collections
     - overlays
 
     #schedule: hourly # (3) hour of day
