@@ -44,14 +44,13 @@ libraries:          # Library mappings must have a colon (:) placed after them  
     report_path: config/reports/TV_Report.yml
 
     #metadata_files:
-    #- file: config/assistant/TV-Shows-returning-soon-metadata.yml
+    #- file: config/metadata.yml
 
     collection_files:
     - file: config/TV_Collections.yml
 
     overlay_files:
     - file: config/TV_Overlays.yml
-    #- folder: config/overlays/
     - default: commonsense #content_rating_us_show
       template_variables:
         back_color: 00
@@ -153,7 +152,6 @@ libraries:          # Library mappings must have a colon (:) placed after them  
 
     overlay_files:
     - file: config/Movies_Overlays.yml
-    #- folder: config/overlays/
 
     - default: mediastinger
       template_variables:
