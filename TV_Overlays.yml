@@ -1,6 +1,13 @@
-###########################
-#     TV Show Overlays    #
-###########################
+######################################################################################################################
+#    _______       _____ _                          ____                 _                 
+#   |__   __|     / ____| |                        / __ \               | |                
+#      | |_   __ | (___ | |__   _____      _____  | |  | |_   _____ _ __| | __ _ _   _ ___ 
+#      | \ \ / /  \___ \| '_ \ / _ \ \ /\ / / __| | |  | \ \ / / _ \ '__| |/ _` | | | / __|
+#      | |\ V /   ____) | | | | (_) \ V  V /\__ \ | |__| |\ V /  __/ |  | | (_| | |_| \__ \
+#      |_| \_/   |_____/|_| |_|\___/ \_/\_/ |___/  \____/  \_/ \___|_|  |_|\__,_|\__, |___/
+#                                                                                 __/ |    
+#                                                                                |___/     
+######################################################################################################################
 
 overlays:
 
@@ -21,7 +28,7 @@ overlays:
  
   Weekly:
     overlay:
-      name: airing  # airing_dark for Dark Mode Theme
+      name: airing  
       group: STATUS
       weight: 800
     plex_all: true
@@ -34,7 +41,7 @@ overlays:
 
   Returning:
     overlay:
-      name: returning  # returning_dark for Dark Mode Theme
+      name: returning  
       group: STATUS
       weight: 700
     plex_all: true
@@ -46,7 +53,7 @@ overlays:
 
   Cancelled:
     overlay:
-      name: cancelled  # cancelled_dark for Dark Mode Theme
+      name: cancelled  
       group: STATUS
       weight: 600
     plex_all: true
@@ -56,14 +63,13 @@ overlays:
 
   Ended:
     overlay:
-      name: ended  # ended_dark for Dark Mode Theme
+      name: ended  
       group: STATUS
       weight: 500
     plex_all: true
     filters:
       tmdb_status:
          - ended
-
 
 ### SHOW STATUS ###
 
@@ -246,8 +252,99 @@ overlays:
 
 ### TMDB TRENDING / NETWORKS ###
 
+### Ratings #######
 
-### RATINGS ###
+  rating_highest:
+    overlay:
+      font_color: "#FFFFFF" 
+      back_color: "#4c9539DD"
+      group: rating_text
+      name: text(critic_rating)
+      rating_type: critic_rating
+      weight: 20
+      font: config/fonts/Poppins-Bold.ttf
+      font_size: 70
+      back_radius: 20
+      back_width: 165
+      back_height: 70
+      horizontal_offset: 30
+      horizontal_align: right 
+      vertical_offset: 30
+      vertical_align: bottom
+    plex_search:
+      all:
+        critic_rating.gte: 7.6
+        critic_rating.lte: 9.9
+        
+  rating_high:
+    overlay:
+      font_color: "#FFFFFF" 
+      back_color: "#39702BDD"
+      group: rating_text
+      name: text(critic_rating)
+      rating_type: critic_rating
+      weight: 20
+      font: config/fonts/Poppins-Bold.ttf
+      font_size: 70
+      back_radius: 20
+      back_width: 165
+      back_height: 70
+      horizontal_offset: 30
+      horizontal_align: right
+      vertical_offset: 30
+      vertical_align: bottom
+    plex_search:
+      all:
+        critic_rating.gte: 6.5
+        critic_rating.lte: 7.5
+        
+  rating_mid:
+    overlay:
+      font_color: "#FFFFFF" 
+      back_color: "#e5a00dDD"
+      group: rating_text
+      name: text(critic_rating)
+      rating_type: critic_rating
+      weight: 20
+      font: config/fonts/Poppins-Bold.ttf
+      font_size: 70
+      back_radius: 20
+      back_width: 165
+      back_height: 70
+      horizontal_offset: 30
+      horizontal_align: right
+      vertical_offset: 30
+      vertical_align: bottom
+    plex_search:
+      all:
+        critic_rating.gte: 4.5
+        critic_rating.lte: 6.4
+
+  rating_low:
+    overlay:
+      font_color: "#FFFFFF" 
+      back_color: "#cc0000DD"
+      group: rating_text
+      name: text(critic_rating)
+      rating_type: critic_rating
+      weight: 20
+      font: config/fonts/Poppins-Bold.ttf
+      font_size: 70
+      back_radius: 20
+      back_width: 165
+      back_height: 70
+      horizontal_offset: 30
+      horizontal_align: right
+      vertical_offset: 30
+      vertical_align: bottom
+    plex_search:
+      all:
+        critic_rating.gte: 0.1
+        critic_rating.lte: 4.4
+
+### Ratings #######
+
+### RATINGS Dial ###
 
   Rating_100:
     overlay:
@@ -1254,4 +1351,4 @@ overlays:
       weight: 100
     plex_all: true
 
-### RATINGS ###
+### RATINGS Dial ###
