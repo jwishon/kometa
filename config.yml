@@ -11,11 +11,6 @@ libraries:          # Library mappings must have a colon (:) placed after them  
 ####################################################################################
 
   TV Shows:
-    run_order:
-    - operations
-    - metadata
-    - collections
-    - overlays
     schedule_overlays: hourly(02-20)
     remove_overlays: false # Set this to true to remove all overlays
     reapply_overlays: false # This will reapply all overlays on each run, which will result in image bloat.
@@ -109,12 +104,6 @@ libraries:          # Library mappings must have a colon (:) placed after them  
 ####################################################################################
 
   Movies:
-    run_order:
-    - operations
-    - metadata
-    - collections
-    - overlays
-
     #schedule: hourly # (3) hour of day
     #schedule_overlays: hourly(02-20)
     remove_overlays: false # This will remove all overlays from your library every run, but will not delete the overlaid images from your system, resulting in image bloat.
