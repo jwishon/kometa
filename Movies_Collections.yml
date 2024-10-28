@@ -1,12 +1,19 @@
-# https://github.com/meisnate12/Plex-Meta-Manager                                      
+#https://github.com/meisnate12/Plex-Meta-Manager                                      
 
 #https://github.com/meisnate12/Plex-Meta-Manager-Configs/blob/master/Glasti1/Movies.yml
 
 #https://github.com/meisnate12/Plex-Meta-Manager-Configs/blob/master/Khak1s/Movies/Holidays.yml
 
-######################################################
-#                Movie Collections                   #
-######################################################
+######################################################################################################################
+#    __  __            _              _____      _ _           _   _                 
+#   |  \/  |          (_)            / ____|    | | |         | | (_)                
+#   | \  / | _____   ___  ___  ___  | |     ___ | | | ___  ___| |_ _  ___  _ __  ___ 
+#   | |\/| |/ _ \ \ / / |/ _ \/ __| | |    / _ \| | |/ _ \/ __| __| |/ _ \| '_ \/ __|
+#   | |  | | (_) \ V /| |  __/\__ \ | |___| (_) | | |  __/ (__| |_| | (_) | | | \__ \
+#   |_|  |_|\___/ \_/ |_|\___||___/  \_____\___/|_|_|\___|\___|\__|_|\___/|_| |_|___/
+#                                                                                    
+#                                                                                    
+######################################################################################################################
 
 ###########################
 #        Templates        #
@@ -23,18 +30,18 @@ templates:
         url_poster: <<poster>>
         sort_title: +++++++_<<collection_name>>
         collection_order: release
-#    delete_not_scheduled: true
-#    run_again: true
-#    visible_home: true
-#    visible_shared: true
-#    sync_mode: sync
+    #delete_not_scheduled: true
+    #run_again: true
+    #visible_home: true
+    #visible_shared: true
+    #sync_mode: sync
 
 ###########################
 #       Collections       #
 ###########################
 
 collections:
-#    schedule: weekly #(sunday)
+    #schedule: weekly #(sunday)
 
 ###########################
 #    Genre Collections    #
@@ -103,7 +110,7 @@ collections:
     trakt_list:
       - https://trakt.tv/users/movistapp/lists/christmas-movies
       - https://trakt.tv/users/2borno2b/lists/christmas-movies-extravanganza
-      - https://trakt.tv/users/pualani78/lists/christmas-2020
+      #- https://trakt.tv/users/pualani78/lists/christmas-2020
       - https://trakt.tv/users/veninjak/lists/complete-christmas-2021-copy
       - https://trakt.tv/users/jjjonesjr33/lists/christmas
       - https://trakt.tv/users/jjjonesjr33/lists/christmas-static-list
@@ -120,10 +127,10 @@ collections:
     template: {name: Holiday, poster: https://theposterdb.com/api/assets/111218}
     trakt_list:
       - https://trakt.tv/users/kairbear08/lists/halloween
-      - https://trakt.tv/users/mybicycle/lists/halloween
-      - https://trakt.tv/users/jayinftl/lists/halloween
+      #- https://trakt.tv/users/mybicycle/lists/halloween
+      #- https://trakt.tv/users/jayinftl/lists/halloween
       - https://trakt.tv/users/roswellgeek/lists/halloween
-      - https://trakt.tv/users/jjjonesjr33/lists/halloween
+      #- https://trakt.tv/users/jjjonesjr33/lists/halloween
 
   Independence Day:
     schedule: range(7/01-7/7)
@@ -161,49 +168,6 @@ collections:
       - https://www.imdb.com/list/ls062665509/
       - https://www.imdb.com/list/ls051733651/
 
-###########################
-#    Decade Collections   #
-###########################
-
-#  30's Movies:
-#    template: {name: Decade, year: 1930, poster: https://theposterdb.com/api/assets/105675}
-#  40's Movies:
-#    template: {name: Decade, year: 1940, poster: https://theposterdb.com/api/assets/105676}
-#  50's Movies: 
-#    template: {name: Decade, year: 1950, oster: https://theposterdb.com/api/assets/105677}
-#  60's Movies:
-#    template: {name: Decade, year: 1960, poster: https://theposterdb.com/api/assets/105331}
-#  70's Movies:
-#    template: {name: Decade, year: 1970, poster: https://theposterdb.com/api/assets/105332}
-#  80's Movies:
-#    template: {name: Decade, year: 1980, poster: https://theposterdb.com/api/assets/105333}
-#  90's Movies:
-#    template: {name: Decade, year: 1990, poster: https://theposterdb.com/api/assets/105334}
-#  00's Movies:
-#    plex_search:
-#      decade: 2000
-#    sort_title: +++_Decade
-#    collection_order: alpha
-#  10's Movies:
-#    plex_search:
-#      decade: 2010
-#    sort_title: +++_Decade
-#    collection_order: alpha
-
-###########################
-#     Trakt Trending      #
-###########################
-#  Trakt Trending:
-#    trakt_trending: 50
-#    sort_title: +++++++++_Trakt Trending
-
-###########################
-#      IMDb Top 250       #
-###########################
-
-#  IMDb Top 250:
-#    imdb_search: https://www.imdb.com/search/title/?groups=top_250&count=250&sort=user_rating,desc
-#    sort_title: ++++++++_IMDb Top 250
 
 ######################################################
 #                        END                         #
