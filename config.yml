@@ -9,9 +9,7 @@
 #            |_|                                                             |___/ 
 ######################################################################################################################
 
-######################################################################################################################
-libraries:          # Library mappings must have a colon (:) placed after them                                      ##
-######################################################################################################################
+libraries:                                      # Library mappings must have a colon (:) placed after them 
 
 ######################################################################################################################
 #    _________      __   _____ _                       
@@ -26,13 +24,13 @@ libraries:          # Library mappings must have a colon (:) placed after them  
   TV Shows:
 
     schedule_overlays: hourly(02-20)
-    remove_overlays: false # Set this to true to remove all overlays
-    reapply_overlays: false # This will reapply all overlays on each run, which will result in image bloat.
-    #reset_overlays: plex # This will reset overlays to plex or tmdb Utill unless set to false                                      
+    remove_overlays: false                      # Set this to true to remove all overlays
+    reapply_overlays: false                     # This will reapply all overlays on each run, which will result in image bloat.
+    #reset_overlays: plex                       # This will reset overlays to plex or tmdb Utill unless set to false                                      
 
     report_path: config/reports/TV_Report.yml
 
-    #metadata_files:
+    #metadata_files:                            # Optional
     #- file: config/tv_refresh.yml
 
     collection_files:
@@ -40,14 +38,14 @@ libraries:          # Library mappings must have a colon (:) placed after them  
 
     overlay_files:
     - file: config/TV_Overlays.yml
-    - default: commonsense #content_rating_us_show
+    - default: commonsense                      #content_rating_us_show
       template_variables:
         back_color: 00
         horizontal_align: left
         vertical_offset: 20
         vertical_align: bottom
 
-    - default: commonsense #content_rating_us_show
+    - default: commonsense                      #content_rating_us_show
       template_variables:
         overlay_level: season
         back_color: 00
@@ -55,7 +53,7 @@ libraries:          # Library mappings must have a colon (:) placed after them  
         vertical_offset: 20
         vertical_align: bottom
 
-    - default: commonsense #content_rating_us_show
+    - default: commonsense                      #content_rating_us_show
       template_variables:
         overlay_level: episode
         back_color: 00
@@ -87,19 +85,19 @@ libraries:          # Library mappings must have a colon (:) placed after them  
     operations:
       split_duplicates: false
       assets_for_all: false
-      delete_unmanaged_collections: false # Any manually added collection outside of PMM will be deleted
-      delete_collections: # Deletes collections based on conditions below
-        configured: false #False/True Removes all Managed Collections (Collections with the PMM Label) that are not configured in the Current Run.
+      delete_unmanaged_collections: false       # Any manually added collection outside of PMM will be deleted
+      delete_collections:                       # Deletes collections based on conditions below
+        configured: false                       #False/True Removes all Managed Collections (Collections with the PMM Label) that are not configured in the Current Run.
         managed: true
-        less: 1  # Collections with less than 1 movie/show in it will be deleted
-       #managed: true # (Deletes PMM label Collections)                                           
-       #managed: false # (Deletes no PMM label collections)                                          
-       #configured: true # (Deletes collections in the config file)                                      
-       #configured: false # (Deletes collections not in the config file)                                      
-      mass_critic_rating_update: imdb # Rating 2
-      mass_audience_rating_update: tmdb # mdb_tomoatoesaudience #mdb_metacritic # Rating 3
-      mass_user_rating_update: mdb_tomatoes # tmdb #Rating 1
-        #mass_poster_update: # Updates every item's poster to the chosen sites poster. Will fall back to plex if the given option fails. Assets will be used over anything else.                                      
+        less: 1                                 # Collections with less than 1 movie/show in it will be deleted
+       #managed: true                           # (Deletes PMM label Collections)                                           
+       #managed: false                          # (Deletes no PMM label collections)                                          
+       #configured: true                        # (Deletes collections in the config file)                                      
+       #configured: false                       # (Deletes collections not in the config file)                                      
+      mass_critic_rating_update: imdb           # Rating 2
+      mass_audience_rating_update: tmdb         # mdb_tomoatoesaudience #mdb_metacritic # Rating 3
+      mass_user_rating_update: mdb_tomatoes     # tmdb #Rating 1
+        #mass_poster_update:                    # Updates every item's poster to the chosen sites poster. Will fall back to plex if the given option fails. Assets will be used over anything else.                                      
         #source: plex
         #seasons: true
         #episodes: true
@@ -107,10 +105,10 @@ libraries:          # Library mappings must have a colon (:) placed after them  
       mass_episode_audience_rating_update: tmdb
       mass_genre_update: tmdb
       mass_content_rating_update:
-      - mdb_commonsense   # Changes Content Rating to "1", "2" etc. to specify appropriate age
-      - mdb_age_rating   # Use MDbList Age Rating for Content Ratings      
-      mass_originally_available_update: tmdb # Update all original available date from tmdb (episode air date example)
-      mass_imdb_parental_labels: none # Updates all parental labels - Violence, Mild Nudity, Smoking, Foul Language, etc.
+      - mdb_commonsense                         # Changes Content Rating to "1", "2" etc. to specify appropriate age
+      - mdb_age_rating                          # Use MDbList Age Rating for Content Ratings      
+      mass_originally_available_update: tmdb    # Update all original available date from tmdb (episode air date example)
+      mass_imdb_parental_labels: none           # Updates all parental labels - Violence, Mild Nudity, Smoking, Foul Language, etc.
 
 
 ######################################################################################################################
@@ -126,14 +124,14 @@ libraries:          # Library mappings must have a colon (:) placed after them  
 
   Movies:
 
-    #schedule: hourly # (3) hour of day
+    #schedule: hourly                           # (3) hour of day
     #schedule_overlays: hourly(02-20)
-    remove_overlays: false # This will remove all overlays from your library every run, but will not delete the overlaid images from your system, resulting in image bloat.
-    reapply_overlays: false # This will reapply all overlays on each run, which will result in image bloat.
-    #reset_overlays: tmdb # This will reset overlays to plex or tmdb Utill set to false or removed this will reset all posters to the desired source on each run and will reapply all overlays on each run, which will result in image bloat.                                      
+    remove_overlays: false                      # This will remove all overlays from your library every run, but will not delete the overlaid images from your system, resulting in image bloat.
+    reapply_overlays: false                     # This will reapply all overlays on each run, which will result in image bloat.
+    #reset_overlays: tmdb                       # This will reset overlays to plex or tmdb Utill set to false or removed this will reset all posters to the desired source on each run and will reapply all overlays on each run, which will result in image bloat.                                      
     report_path: config/reports/Movies_Report.yml
 
-    #metadata_files:
+    #metadata_files:                            # Optonal
     #- file: config/movies_refresh.yml
 
     collection_files:
@@ -148,13 +146,12 @@ libraries:          # Library mappings must have a colon (:) placed after them  
         vertical_align: top
         vertical_offset: 280
 
-    - default: commonsense #content_rating_us_movie
+    - default: commonsense                      #content_rating_us_movie
       template_variables:
         back_color: 00
-        horizontal_align: center #left
+        horizontal_align: center
         horizontal_offset: 40
-        vertical_align: bottom #top
-        #vertical_offset: 80 #160
+        vertical_align: bottom
 
 ######################################################################################################################
 #    __  __            _              ____                       _   _                 
@@ -170,24 +167,24 @@ libraries:          # Library mappings must have a colon (:) placed after them  
     operations:
       split_duplicates: false
       assets_for_all: false
-      delete_unmanaged_collections: false # Any manually added collection outside of PMM will be deleted
-      delete_collections: # Deletes collections based on conditions below
-        configured: false #False/True Removes all Managed Collections (Collections with the PMM Label) that are not configured in the Current Run.
+      delete_unmanaged_collections: false       # Any manually added collection outside of PMM will be deleted
+      delete_collections:                       # Deletes collections based on conditions below
+        configured: false                       #False/True Removes all Managed Collections (Collections with the PMM Label) that are not configured in the Current Run.
         managed: true
-        less: 1 # Collections with less than 1 movie/show in it will be deleted
-        #managed: true # (Deletes PMM label Collections)                                           
-        #managed: false # (Deletes no PMM label collections)                                          
-        #configured: true # (Deletes collections in the config file)                                        
-        #configured: false # (Deletes collections not in the config file)                                      
-      #mass_poster_update: plex #  Updates every item's poster to the chosen sites poster. Will fall back to plex if the given option fails. Assets will be used over anything else.                                 
-      mass_critic_rating_update: imdb # Rating 2
-      mass_audience_rating_update: tmdb # mdb_tomoatoesaudience #mdb_metacritic # Rating 3
-      mass_user_rating_update: mdb_tomatoes # tmdb #Rating 1   
+        less: 1                                 # Collections with less than 1 movie/show in it will be deleted
+        #managed: true                          # (Deletes PMM label Collections)                                           
+        #managed: false                         # (Deletes no PMM label collections)                                          
+        #configured: true                       # (Deletes collections in the config file)                                        
+        #configured: false                      # (Deletes collections not in the config file)                                      
+      #mass_poster_update: plex                 # Updates every item's poster to the chosen sites poster. Will fall back to plex if the given option fails. Assets will be used over anything else.                                 
+      mass_critic_rating_update: imdb           # Rating 2
+      mass_audience_rating_update: tmdb         # mdb_tomoatoesaudience #mdb_metacritic # Rating 3
+      mass_user_rating_update: mdb_tomatoes     # tmdb #Rating 1   
       mass_genre_update: tmdb
       mass_content_rating_update:
-      - mdb_commonsense   # Changes Content Rating to "1", "2" etc. to specify appropriate age
-      - mdb   # Use MdbList for Content Ratings
-      - mdb_age_rating   # Use MDbList Age Rating for Content Ratings
+      - mdb_commonsense                         # Changes Content Rating to "1", "2" etc. to specify appropriate age
+      - mdb                                     # Use MdbList for Content Ratings
+      - mdb_age_rating                          # Use MDbList Age Rating for Content Ratings
       - NR
       mass_originally_available_update: tmdb
       mass_imdb_parental_labels: none
@@ -248,7 +245,7 @@ settings:                                       # Can be individually specified 
   show_options: false
   show_unmanaged: true
   show_unconfigured: true
-  sync_mode: sync #append # append/sync - append doesn't remove items from a collection - sync does
+  sync_mode: sync                               #append # append/sync - append doesn't remove items from a collection - sync does
   tvdb_language: eng
   verify_ssl: true
 
@@ -351,7 +348,8 @@ trakt:
 #   | |__| | (_) | | | | | |_  | |___| (_| | | |_ 
 #   |_____/ \___/|_| |_|  \__| |______\__,_|_|\__|
 #                                                 
-#   everything below is autofilled by the script
+                                                #   everything below is autofilled by the script
+
     access_token: 
     token_type: Bearer
     expires_in: 
