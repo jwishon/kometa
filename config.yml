@@ -8,6 +8,8 @@
 #            | |                                                              __/ |
 #            |_|                                                             |___/ 
 ######################################################################################################################
+
+######################################################################################################################
 libraries:          # Library mappings must have a colon (:) placed after them                                      ##
 ######################################################################################################################
 
@@ -31,7 +33,7 @@ libraries:          # Library mappings must have a colon (:) placed after them  
     report_path: config/reports/TV_Report.yml
 
     #metadata_files:
-    #- file: config/metadata.yml
+    #- file: config/tv_refresh.yml
 
     collection_files:
     - file: config/TV_Collections.yml
@@ -132,7 +134,7 @@ libraries:          # Library mappings must have a colon (:) placed after them  
     report_path: config/reports/Movies_Report.yml
 
     #metadata_files:
-    #- file: config/metadata.yml
+    #- file: config/movies_refresh.yml
 
     collection_files:
     - file: config/Movies_Collections.yml
@@ -168,7 +170,6 @@ libraries:          # Library mappings must have a colon (:) placed after them  
     operations:
       split_duplicates: false
       assets_for_all: false
-
       delete_unmanaged_collections: false # Any manually added collection outside of PMM will be deleted
       delete_collections: # Deletes collections based on conditions below
         configured: false #False/True Removes all Managed Collections (Collections with the PMM Label) that are not configured in the Current Run.
@@ -202,7 +203,7 @@ libraries:          # Library mappings must have a colon (:) placed after them  
 #                                                               |___/     
 ######################################################################################################################
 
-settings:
+settings:                                       # Can be individually specified per library as well
   assets_for_all: false
   asset_depth: 1
   asset_directory: plex/assets
@@ -223,6 +224,8 @@ settings:
   minimum_items: 1
   missing_only_released: false
   only_filter_missing: false
+  overlay_artwork_filetype: jpg
+  overlay_artwork_quality: 75
   playlist_exclude_users:
   playlist_report: false
   playlist_sync_to_user: all
@@ -235,7 +238,7 @@ settings:
   - collections
   - overlays
   save_missing: false
-  save_report: true
+  save_report: false
   show_asset_not_needed: true
   show_filtered: false
   show_missing: true
@@ -260,7 +263,7 @@ settings:
 #                                                             |___/     
 ######################################################################################################################
 
-webhooks:
+webhooks:                                       # Can be individually specified per library as well
   version: https://discord.com/api/webhooks/<<DISCORDWEBHOOK>>
   run_start: https://discord.com/api/webhooks/<<DISCORDWEBHOOK>>
   run_end: https://discord.com/api/webhooks/<<DISCORDWEBHOOK>>
@@ -268,7 +271,7 @@ webhooks:
   delete: https://discord.com/api/webhooks/<<DISCORDWEBHOOK>>
   error: https://discord.com/api/webhooks/<<DISCORDWEBHOOK>>
 
-plex:
+plex:                                           # Can be individually specified per library as well
   url: http://<<PLEXURL>>
   token: <<PLEXTOKEN>>
   timeout: 60
@@ -278,13 +281,13 @@ plex:
   db_cache:
   verify_ssl:
 
-tmdb:
+tmdb:                                           # Required for script to run
   apikey: <<TMDBAPI>>
   language: en
   cache_expiration: 60
   region:
 
-tautulli:
+tautulli:                                       # Can be individually specified per library as well
   url: http://<<TAUTULLIURL>>
   apikey: <<TAUTULLIAPI>>
 
@@ -299,7 +302,7 @@ mdblist:
 #notifiarr:
   #apikey: <<NOTIFIERAPI>>
 
-radarr:
+radarr:                                         # Can be individually specified per library as well
   url: http://<<RADARRURL>>
   token: <<RADARRTOKEN>>
   add_missing: false
@@ -316,7 +319,7 @@ radarr:
   upgrade_existing: false
   monitor_existing: false
 
-sonarr:
+sonarr:                                         # Can be individually specified per library as well
   url: http://<<SONARRURL>>
   token: <<SONARRTOKEN>>
   add_missing: false
@@ -350,7 +353,7 @@ trakt:
 #                                                 
 #   everything below is autofilled by the script
     access_token: 
-    token_type: 
+    token_type: Bearer
     expires_in: 
     refresh_token: 
     scope: public
