@@ -7,7 +7,7 @@ See example config.yml for examples on how to use.
 ![TV Show Overlays](https://i.ibb.co/xScb4kBV/SNAG-1110.png)
 
 ## TV Show Card Info and Episode Info
-![TV Show Card and Episode Info](https://i.ibb.co/sdx9VP8G/SNAG-1112.png)
+![TV Show Card and Episode Info](https://ibb.co/ycvFQRH1)
 
 ## TV Show Collections
 Collections based on New, Airing, Ended, or Cancelled
