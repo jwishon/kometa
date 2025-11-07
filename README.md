@@ -6,8 +6,7 @@ See example config.yml for examples on how to use.
 
 TV Show Overlays
 
-<img width="678" alt="SNAG-1111" src="<img src="https://i.ibb.co/0ydB13gB/SNAG-1111.png" alt="SNAG-1111" border="0">">
-
+<img src="https://i.ibb.co/xScb4kBV/SNAG-1110.png" alt="SNAG-1110" border="0">
 
 TV Show Card info and episode info
 
