@@ -4,17 +4,18 @@ My personal Kometa config and setup
 See example config.yml for examples on how to use.
 
 ## TV Show Overlays
-![TV Show Overlays](https://i.ibb.co/xScb4kBV/SNAG-1110.png)
+[url=https://postimg.cc/Yj2rLLnH][img]https://i.postimg.cc/Yj2rLLnH/SNAG-1110.png[/img][/url]
 
 ## TV Show Card Info and Episode Info
-![TV Show Card and Episode Info](https://ibb.co/ycvFQRH1)
+[url=https://postimg.cc/grczLLM1][img]https://i.postimg.cc/grczLLM1/SNAG-1112.png[/img][/url]
 
 ## TV Show Collections
 Collections based on New, Airing, Ended, or Cancelled
-![TV Show Collections](https://i.ibb.co/XkWfTXhV/SNAG-1113.png)
+
+[url=https://postimg.cc/nMVF99d5][img]https://i.postimg.cc/nMVF99d5/SNAG-1113.png[/img][/url]
 
 ## Movie Overlays
-![Movie Overlays](https://i.ibb.co/35NCHCmT/SNAG-1114.png)
+[url=https://postimg.cc/rzyVRRh3][img]https://i.postimg.cc/rzyVRRh3/SNAG-1114.png[/img][/url]
 
 ## Movie Collections
-![Movie Collections](https://i.ibb.co/1JZ6WGBW/SNAG-1115.png)
+[url=https://postimg.cc/K4cG3396][img]https://i.postimg.cc/K4cG3396/SNAG-1115.png[/img][/url]
