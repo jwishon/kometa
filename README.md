@@ -7,7 +7,9 @@ See example config.yml for examples on how to use.
 <a href="https://ibb.co/Z6wrZjFy"><img src="https://i.ibb.co/xScb4kBV/SNAG-1110.png" alt="SNAG-1110" border="0"></a><br><br>
 
 ## TV Show Card Info and Episode Info
-<a href="https://ibb.co/N2H1fz81"><img src="https://i.ibb.co/0ydB13gB/SNAG-1111.png" alt="SNAG-1111" border="0"></a><br><br>
+<a href="https://ibb.co/wNgxxLjp"><img src="https://i.ibb.co/JRtMMdgr/SNAG-1117.png" alt="SNAG-1117" border="0"></a><br><br>
+
+<a href="https://ibb.co/B5fj91SL"><img src="https://i.ibb.co/YFN8xrq2/SNAG-1116.png" alt="SNAG-1116" border="0"></a><br><br>
 
 ## TV Show Collections
 Collections based on New, Airing, Ended, or Cancelled
