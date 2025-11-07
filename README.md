@@ -6,13 +6,12 @@ See example config.yml for examples on how to use.
 
 TV Show Overlays
 
-<img width="678" alt="SNAG-0217" src="https://i.ibb.co/DWDDtjn/SNAG-0278.png">
+<img width="678" alt="SNAG-1111" src="<img src="https://i.ibb.co/0ydB13gB/SNAG-1111.png" alt="SNAG-1111" border="0">">
 
 
 TV Show Card info and episode info
 
-<img width="394" alt="SNAG-0218" src="https://i.ibb.co/h9dgP7M/SNAG-0279.png">
-
+<img src="https://i.ibb.co/sdx9VP8G/SNAG-1112.png" alt="SNAG-1112" border="0">
 
 TV Show Collections based on New, Airing, Ended, or Cancelled
 
