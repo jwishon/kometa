@@ -11,7 +11,6 @@ See example config.yml for examples on how to use.
 
 ## TV Show Collections
 Collections based on New, Airing, Ended, or Cancelled
-
 <a href="https://postimg.cc/nMVF99d5" target="_blank"><img src="https://i.postimg.cc/nMVF99d5/SNAG-1113.png" alt="SNAG-1113"></a><br><br>
 
 ## Movie Overlays
